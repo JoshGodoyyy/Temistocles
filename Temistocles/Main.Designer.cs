@@ -27,16 +27,23 @@
             this.versaoTxt = new System.Windows.Forms.ToolStripStatusLabel();
             this.usuarioTxt = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cadastrosTab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.novaAvaliacaoBtn = new System.Windows.Forms.Button();
+            this.editarClienteBtn = new System.Windows.Forms.Button();
             this.novoClienteBtn = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.financeiroTab = new System.Windows.Forms.TabPage();
+            this.pagamentosBtn = new System.Windows.Forms.Button();
+            this.fluxoDeCaixaBtn = new System.Windows.Forms.Button();
+            this.sairTab = new System.Windows.Forms.TabPage();
+            this.logoutBtn = new System.Windows.Forms.Button();
+            this.encerrarBtn = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.cadastrosTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.financeiroTab.SuspendLayout();
+            this.sairTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -63,27 +70,29 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.tabControl1);
+            this.panel1.Controls.Add(this.cadastrosTab);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 60);
             this.panel1.TabIndex = 0;
             // 
-            // tabPage2
+            // cadastrosTab
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(792, 84);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Financeiro";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.cadastrosTab.Controls.Add(this.tabPage1);
+            this.cadastrosTab.Controls.Add(this.financeiroTab);
+            this.cadastrosTab.Controls.Add(this.sairTab);
+            this.cadastrosTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cadastrosTab.Location = new System.Drawing.Point(0, 0);
+            this.cadastrosTab.Name = "cadastrosTab";
+            this.cadastrosTab.SelectedIndex = 0;
+            this.cadastrosTab.Size = new System.Drawing.Size(800, 60);
+            this.cadastrosTab.TabIndex = 2;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button3);
-            this.tabPage1.Controls.Add(this.button2);
+            this.tabPage1.Controls.Add(this.novaAvaliacaoBtn);
+            this.tabPage1.Controls.Add(this.editarClienteBtn);
             this.tabPage1.Controls.Add(this.novoClienteBtn);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -93,16 +102,31 @@
             this.tabPage1.Text = "Cadastros";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabControl1
+            // novaAvaliacaoBtn
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(800, 60);
-            this.tabControl1.TabIndex = 2;
+            this.novaAvaliacaoBtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.novaAvaliacaoBtn.FlatAppearance.BorderSize = 0;
+            this.novaAvaliacaoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.novaAvaliacaoBtn.Location = new System.Drawing.Point(159, 3);
+            this.novaAvaliacaoBtn.Name = "novaAvaliacaoBtn";
+            this.novaAvaliacaoBtn.Size = new System.Drawing.Size(93, 28);
+            this.novaAvaliacaoBtn.TabIndex = 4;
+            this.novaAvaliacaoBtn.Text = "Nova Avaliação";
+            this.novaAvaliacaoBtn.UseVisualStyleBackColor = true;
+            this.novaAvaliacaoBtn.Click += new System.EventHandler(this.novaAvaliacaoBtn_Click);
+            // 
+            // editarClienteBtn
+            // 
+            this.editarClienteBtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.editarClienteBtn.FlatAppearance.BorderSize = 0;
+            this.editarClienteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editarClienteBtn.Location = new System.Drawing.Point(81, 3);
+            this.editarClienteBtn.Name = "editarClienteBtn";
+            this.editarClienteBtn.Size = new System.Drawing.Size(78, 28);
+            this.editarClienteBtn.TabIndex = 3;
+            this.editarClienteBtn.Text = "Editar Cliente";
+            this.editarClienteBtn.UseVisualStyleBackColor = true;
+            this.editarClienteBtn.Click += new System.EventHandler(this.editarClienteBtn_Click);
             // 
             // novoClienteBtn
             // 
@@ -117,29 +141,81 @@
             this.novoClienteBtn.UseVisualStyleBackColor = true;
             this.novoClienteBtn.Click += new System.EventHandler(this.novoClienteBtn_Click);
             // 
-            // button2
+            // financeiroTab
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(81, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(78, 28);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Editar Cliente";
-            this.button2.UseVisualStyleBackColor = true;
+            this.financeiroTab.Controls.Add(this.fluxoDeCaixaBtn);
+            this.financeiroTab.Controls.Add(this.pagamentosBtn);
+            this.financeiroTab.Location = new System.Drawing.Point(4, 22);
+            this.financeiroTab.Name = "financeiroTab";
+            this.financeiroTab.Padding = new System.Windows.Forms.Padding(3);
+            this.financeiroTab.Size = new System.Drawing.Size(792, 34);
+            this.financeiroTab.TabIndex = 1;
+            this.financeiroTab.Text = "Financeiro";
+            this.financeiroTab.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // pagamentosBtn
             // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(159, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(93, 28);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Nova Avaliação";
-            this.button3.UseVisualStyleBackColor = true;
+            this.pagamentosBtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pagamentosBtn.FlatAppearance.BorderSize = 0;
+            this.pagamentosBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pagamentosBtn.Location = new System.Drawing.Point(3, 3);
+            this.pagamentosBtn.Name = "pagamentosBtn";
+            this.pagamentosBtn.Size = new System.Drawing.Size(75, 28);
+            this.pagamentosBtn.TabIndex = 0;
+            this.pagamentosBtn.Text = "Pagamentos";
+            this.pagamentosBtn.UseVisualStyleBackColor = true;
+            this.pagamentosBtn.Click += new System.EventHandler(this.pagamentosBtn_Click);
+            // 
+            // fluxoDeCaixaBtn
+            // 
+            this.fluxoDeCaixaBtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.fluxoDeCaixaBtn.FlatAppearance.BorderSize = 0;
+            this.fluxoDeCaixaBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fluxoDeCaixaBtn.Location = new System.Drawing.Point(78, 3);
+            this.fluxoDeCaixaBtn.Name = "fluxoDeCaixaBtn";
+            this.fluxoDeCaixaBtn.Size = new System.Drawing.Size(87, 28);
+            this.fluxoDeCaixaBtn.TabIndex = 2;
+            this.fluxoDeCaixaBtn.Text = "Fluxo de Caixa";
+            this.fluxoDeCaixaBtn.UseVisualStyleBackColor = true;
+            this.fluxoDeCaixaBtn.Click += new System.EventHandler(this.fluxoDeCaixaBtn_Click);
+            // 
+            // sairTab
+            // 
+            this.sairTab.Controls.Add(this.encerrarBtn);
+            this.sairTab.Controls.Add(this.logoutBtn);
+            this.sairTab.Location = new System.Drawing.Point(4, 22);
+            this.sairTab.Name = "sairTab";
+            this.sairTab.Padding = new System.Windows.Forms.Padding(3);
+            this.sairTab.Size = new System.Drawing.Size(792, 34);
+            this.sairTab.TabIndex = 2;
+            this.sairTab.Text = "Sair";
+            this.sairTab.UseVisualStyleBackColor = true;
+            // 
+            // logoutBtn
+            // 
+            this.logoutBtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.logoutBtn.FlatAppearance.BorderSize = 0;
+            this.logoutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logoutBtn.Location = new System.Drawing.Point(3, 3);
+            this.logoutBtn.Name = "logoutBtn";
+            this.logoutBtn.Size = new System.Drawing.Size(75, 28);
+            this.logoutBtn.TabIndex = 0;
+            this.logoutBtn.Text = "Logout";
+            this.logoutBtn.UseVisualStyleBackColor = true;
+            this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
+            // 
+            // encerrarBtn
+            // 
+            this.encerrarBtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.encerrarBtn.FlatAppearance.BorderSize = 0;
+            this.encerrarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.encerrarBtn.Location = new System.Drawing.Point(78, 3);
+            this.encerrarBtn.Name = "encerrarBtn";
+            this.encerrarBtn.Size = new System.Drawing.Size(75, 28);
+            this.encerrarBtn.TabIndex = 1;
+            this.encerrarBtn.Text = "Encerrar";
+            this.encerrarBtn.UseVisualStyleBackColor = true;
+            this.encerrarBtn.Click += new System.EventHandler(this.encerrarBtn_Click);
             // 
             // Main
             // 
@@ -158,8 +234,10 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.cadastrosTab.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
+            this.financeiroTab.ResumeLayout(false);
+            this.sairTab.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,14 +247,19 @@
 
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel versaoTxt;
-        private System.Windows.Forms.ToolStripStatusLabel usuarioTxt;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button editarClienteBtn;
         private System.Windows.Forms.Button novoClienteBtn;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button novaAvaliacaoBtn;
+        private System.Windows.Forms.Button fluxoDeCaixaBtn;
+        private System.Windows.Forms.Button pagamentosBtn;
+        private System.Windows.Forms.TabPage sairTab;
+        private System.Windows.Forms.Button encerrarBtn;
+        private System.Windows.Forms.Button logoutBtn;
+        public System.Windows.Forms.ToolStripStatusLabel usuarioTxt;
+        public System.Windows.Forms.TabPage tabPage1;
+        public System.Windows.Forms.TabPage financeiroTab;
+        public System.Windows.Forms.TabControl cadastrosTab;
     }
 }
 

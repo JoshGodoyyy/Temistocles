@@ -1,6 +1,5 @@
 ﻿using Temistocles.Entity;
 using System.Data.SQLite;
-using System.Windows.Forms;
 
 namespace Temistocles.DAO {
     public class Banco {

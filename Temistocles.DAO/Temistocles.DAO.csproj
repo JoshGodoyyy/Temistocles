@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="Banco.cs" />
     <Compile Include="Global.cs" />
+    <Compile Include="Logar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
