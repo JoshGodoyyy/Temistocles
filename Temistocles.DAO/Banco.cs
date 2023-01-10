@@ -1,21 +1,24 @@
 ﻿using Temistocles.Entity;
 using System.Data.SQLite;
+using System.Collections.Generic;
+using System;
 
 namespace Temistocles.DAO {
     public class Banco {
         private static string path = "Data Source=" + Global.pathDatabase;
         private static SQLiteConnection connection;
         private static SQLiteCommand command;
-        private static SQLiteDataAdapter dataAdapter;
         private static SQLiteDataReader reader;
 
         public ClienteEntity CadastrarCliente(ClienteEntity cliente) {
             using(connection = new SQLiteConnection(path)) {
                 connection.Open();
                 command = connection.CreateCommand();
-                command.CommandText = "insert into clientes (nome, idade, sexo, peso, estatura, imc, resultado, torax, cintura, abdomen, quadril, bracodireito, bracoesquerdo, antebracodireito, antebracoesquerdo, coxadireita, coxaesquerda, panturrilhadireita, panturrilhaesquerda, dataavaliacao) values (@nome, @idade, @sexo, @peso, @estatura, @imc, @resultado, @torax, @cintura, @abdomen, @quadril, @bracodireito, @bracoesquerdo, @antebracodireito, @antebracoesquerdo, @coxadireita, @coxaesquerda, @panturrilhadireita, @panturrilhaesquerda, @dataavaliacao)";
+                command.CommandText = "insert into clientes (nome, nascimento, endereco, contato, sexo, peso, estatura, imc, resultado, torax, cintura, abdomen, quadril, bracodireito, bracoesquerdo, antebracodireito, antebracoesquerdo, coxadireita, coxaesquerda, panturrilhadireita, panturrilhaesquerda, dataavaliacao, estaativo) values (@nome, @nascimento, @endereco, @contato, @sexo, @peso, @estatura, @imc, @resultado, @torax, @cintura, @abdomen, @quadril, @bracodireito, @bracoesquerdo, @antebracodireito, @antebracoesquerdo, @coxadireita, @coxaesquerda, @panturrilhadireita, @panturrilhaesquerda, @dataavaliacao, @estaativo)";
                 command.Parameters.AddWithValue("nome", cliente.Nome);
-                command.Parameters.AddWithValue("idade", cliente.Idade);
+                command.Parameters.AddWithValue("nascimento", cliente.Nascimento);
+                command.Parameters.AddWithValue("endereco", cliente.Endereco);
+                command.Parameters.AddWithValue("contato", cliente.Contato);
                 command.Parameters.AddWithValue("sexo", cliente.Sexo);
                 command.Parameters.AddWithValue("peso", cliente.Peso);
                 command.Parameters.AddWithValue("estatura", cliente.Estatura);
@@ -34,6 +37,73 @@ namespace Temistocles.DAO {
                 command.Parameters.AddWithValue("panturrilhadireita", cliente.PanturrilhaDireita);
                 command.Parameters.AddWithValue("panturrilhaesquerda", cliente.PanturrilhaEsquerda);
                 command.Parameters.AddWithValue("dataavaliacao", cliente.DataAvaliacao);
+                command.Parameters.AddWithValue("estaativo", cliente.EstaAtivo);
+                command.ExecuteNonQuery();
+
+                return cliente;
+            }
+        }
+
+        public List<ClienteEntity> ListarCliente() {
+            using(connection = new SQLiteConnection(path)) {
+                connection.Open();
+                command = connection.CreateCommand();
+                command.CommandText = "select * from clientes";
+
+                List<ClienteEntity> clientes = new List<ClienteEntity>();
+                reader = command.ExecuteReader();
+
+                while(reader.Read()) {
+                    ClienteEntity cliente = new ClienteEntity() {
+                        Id = Convert.ToInt32(reader["id"]),
+                        Nome = Convert.ToString(reader["nome"]),
+                    };
+                    clientes.Add(cliente);
+                }
+
+                return clientes;
+            }
+        }
+
+        public List<ClienteEntity> SelecionarCliente(int id) {
+            using(connection = new SQLiteConnection(path)) {
+                connection.Open();
+                command = connection.CreateCommand();
+                command.CommandText = "select * from clientes where id = @id";
+                command.Parameters.AddWithValue("id", id);
+
+                List<ClienteEntity> clientes = new List<ClienteEntity>();
+                reader = command.ExecuteReader();
+
+                while(reader.Read()) {
+                    ClienteEntity cliente = new ClienteEntity() {
+                        Id = Convert.ToInt32(reader["id"]),
+                        Nome = Convert.ToString(reader["nome"]),
+                        Nascimento = Convert.ToDateTime(reader["nascimento"]),
+                        Sexo = Convert.ToString(reader["sexo"]),
+                        Endereco = Convert.ToString(reader["endereco"]),
+                        Contato = Convert.ToString(reader["contato"]),
+                        EstaAtivo = Convert.ToBoolean(reader["estaativo"])
+                    };
+                    clientes.Add(cliente);
+                }
+
+                return clientes;
+            }
+        }
+
+        public ClienteEntity EditarCliente(ClienteEntity cliente) {
+            using(connection=new SQLiteConnection(path)) {
+                connection.Open();
+                command = connection.CreateCommand();
+                command.CommandText = "update clientes set nome = @nome, nascimento = @nascimento, sexo = @sexo, endereco = @endereco, contato = @contato, estaativo = @estaativo where id = @id";
+                command.Parameters.AddWithValue("nome", cliente.Nome);
+                command.Parameters.AddWithValue("nascimento", cliente.Nascimento);
+                command.Parameters.AddWithValue("sexo", cliente.Sexo);
+                command.Parameters.AddWithValue("endereco", cliente.Endereco);
+                command.Parameters.AddWithValue("contato", cliente.Contato);
+                command.Parameters.AddWithValue("estaativo", cliente.EstaAtivo);
+                command.Parameters.AddWithValue("id", cliente.Id);
                 command.ExecuteNonQuery();
                 return cliente;
             }

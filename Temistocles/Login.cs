@@ -27,6 +27,7 @@ namespace Temistocles {
                 main.usuarioTxt.Text = Global.Usuario;
                 main.cadastrosTab.Enabled = true;
                 main.financeiroTab.Enabled = true;
+                main.logoutBtn.Enabled = true;
                 Close();
             } else {
                 MessageBox.Show("Usuário e/ou senha inválido(s).", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);

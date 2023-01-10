@@ -58,7 +58,7 @@ namespace Temistocles {
                     classificacaoTxt.ForeColor = Color.Red;
                 }
             }
-            
+
             classificacaoTxt.Text = resultado;
         }
 
@@ -73,7 +73,9 @@ namespace Temistocles {
             try {
                 ClienteEntity cliente = new ClienteEntity() {
                     Nome = nomeTxt.Text,
-                    Idade = int.Parse(idadeNmr.Value.ToString()),
+                    Nascimento = DateTime.Parse(nascimentoDt.Value.ToString()),
+                    Endereco = enderecoTxt.Text,
+                    Contato = contatoTxt.Text,
                     Peso = double.Parse(pesoNmr.Value.ToString()),
                     Estatura = double.Parse(estaturaTxt.Text),
                     IMC = double.Parse(imcTxt.Text),
@@ -91,11 +93,12 @@ namespace Temistocles {
                     PanturrilhaDireita = double.Parse(panturrilhaDireitaTxt.Text),
                     PanturrilhaEsquerda = double.Parse(panturrilhaEsquerdaTxt.Text),
                     DataAvaliacao = DateTime.Parse(dataAvaliacaoDt.Value.ToString()),
+                    EstaAtivo = true,
                 };
                 if(masculinoRdo.Checked) cliente.Sexo = "Masculino";
                 else cliente.Sexo = "Feminino";
 
-                CadastroClientes.CadastrarCliente(cliente);
+                ClienteModel.CadastrarCliente(cliente);
             } catch(Exception ex) {
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -118,8 +121,9 @@ namespace Temistocles {
 
         private void LimparCampos() {
             nomeTxt.Clear();
-            idadeNmr.Value = 0;
             masculinoRdo.Checked = true;
+            enderecoTxt.Clear();
+            contatoTxt.Clear();
             pesoNmr.Value = 0;
             estaturaTxt.Clear();
             imcTxt.Clear();
@@ -136,6 +140,16 @@ namespace Temistocles {
             coxaEsquerdaTxt.Clear();
             panturrilhaDireitaTxt.Clear();
             panturrilhaEsquerdaTxt.Clear();
+        }
+
+        private void contatoTxt_Leave(object sender, EventArgs e) {
+            if(contatoTxt.Text.Length <= 10) contatoTxt.Mask = "(00) 0000-0000";
+            else contatoTxt.Mask = "(00) 00000-0000";
+        }
+
+        private void limparLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            contatoTxt.Text = "";
+            contatoTxt.Mask = "";
         }
     }
 }

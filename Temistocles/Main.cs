@@ -3,10 +3,13 @@ using System.Windows.Forms;
 
 namespace Temistocles {
     public partial class Main : Form {
+
         public Main() {
             InitializeComponent();
             versaoTxt.Text = Global.Versao;
             Conexao();
+            Width = Screen.PrimaryScreen.Bounds.Width;
+            Height = Screen.PrimaryScreen.Bounds.Height;
         }
 
         private void Conexao() {
@@ -16,6 +19,7 @@ namespace Temistocles {
                 login.Show();
                 cadastrosTab.Enabled = false;
                 financeiroTab.Enabled = false;
+                logoutBtn.Enabled = false;
                 Global.Usuario = "Desconectado";
                 usuarioTxt.Text = Global.Usuario;
             }
@@ -31,11 +35,21 @@ namespace Temistocles {
         }
 
         private void editarClienteBtn_Click(object sender, EventArgs e) {
-
+            Form formOpenned = Application.OpenForms["EditarCliente"];
+            if(formOpenned == null) {
+                formOpenned = new EditarCliente();
+                formOpenned.MdiParent = this;
+                formOpenned.Show();
+            }
         }
 
-        private void novaAvaliacaoBtn_Click(object sender, EventArgs e) {
-
+        private void avaliacoesBtn_Click(object sender, EventArgs e) {
+            Form formOpenned = Application.OpenForms["Avaliacoes"];
+            if(formOpenned == null) {
+                formOpenned = new Avaliacoes();
+                formOpenned.MdiParent = this;
+                formOpenned.Show();
+            }
         }
 
         private void pagamentosBtn_Click(object sender, EventArgs e) {

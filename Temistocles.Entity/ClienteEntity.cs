@@ -2,7 +2,9 @@
     public class ClienteEntity {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public int Idade { get; set; }
+        public System.DateTime Nascimento { get; set; }
+        public string Endereco { get; set; }
+        public string Contato { get; set; }
         public string Sexo { get; set; }
         public double Peso { get; set; }
         public double Estatura { get; set; }
@@ -21,5 +23,6 @@
         public double PanturrilhaDireita { get; set; }
         public double PanturrilhaEsquerda { get; set; }
         public System.DateTime DataAvaliacao { get; set; }
+        public bool EstaAtivo { get; set; }
     }
 }
