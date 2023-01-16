@@ -20,5 +20,9 @@ namespace Temistocles.Model {
         public static ClienteEntity EditarCliente(ClienteEntity cliente) {
             return new Banco().EditarCliente(cliente);
         }
+
+        public static AvaliacaoEntity CriarAvaliacao(AvaliacaoEntity avaliacao) {
+            return new Banco().CriarAvaliacao(avaliacao);
+        }
     }
 }

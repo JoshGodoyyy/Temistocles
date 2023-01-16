@@ -6,7 +6,7 @@ using Temistocles.Model;
 
 namespace Temistocles {
     public partial class Login : Form {
-        Main main;
+        readonly Main main;
         public Login(Main main) {
             InitializeComponent();
             this.main = main;

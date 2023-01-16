@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 using Temistocles.Entity;
 using Temistocles.Model;
@@ -8,58 +7,6 @@ namespace Temistocles {
     public partial class CadastroCliente : Form {
         public CadastroCliente() {
             InitializeComponent();
-        }
-
-        private void CalcularIMC() {
-            double peso, altura, resultado;
-            peso = double.Parse(pesoNmr.Text);
-            if(estaturaTxt.Text != "") altura = double.Parse(estaturaTxt.Text);
-            else altura = 0;
-            resultado = peso / Math.Pow(altura, 2);
-            imcTxt.Text = resultado.ToString("N2");
-            Resultado(resultado);
-        }
-
-        public void Resultado(double valor) {
-            string resultado;
-
-            if(masculinoRdo.Checked) {
-                if(valor < 20) {
-                    resultado = "Abaixo do peso";
-                    classificacaoTxt.ForeColor = Color.OrangeRed;
-                } else if(valor >= 20 && valor <= 24.9) {
-                    resultado = "Normal";
-                    classificacaoTxt.ForeColor = Color.Green;
-                } else if(valor >= 25 && valor < 30) {
-                    resultado = "Obesidade leve";
-                    classificacaoTxt.ForeColor = Color.OrangeRed;
-                } else if(valor >= 30 && valor <= 39.9) {
-                    resultado = "Obesidade grau II";
-                    classificacaoTxt.ForeColor = Color.OrangeRed;
-                } else {
-                    resultado = "Obesidade mórbida";
-                    classificacaoTxt.ForeColor = Color.Red;
-                }
-            } else {
-                if(valor < 19) {
-                    resultado = "Abaixo do peso";
-                    classificacaoTxt.ForeColor = Color.OrangeRed;
-                } else if(valor >= 19 && valor <= 23.9) {
-                    resultado = "Normal";
-                    classificacaoTxt.ForeColor = Color.Green;
-                } else if(valor >= 24 && valor < 28.9) {
-                    resultado = "Obesidade leve";
-                    classificacaoTxt.ForeColor = Color.OrangeRed;
-                } else if(valor >= 29 && valor <= 38.9) {
-                    resultado = "Obesidade grau II";
-                    classificacaoTxt.ForeColor = Color.OrangeRed;
-                } else {
-                    resultado = "Obesidade mórbida";
-                    classificacaoTxt.ForeColor = Color.Red;
-                }
-            }
-
-            classificacaoTxt.Text = resultado;
         }
 
         private void cancelarBtn_Click(object sender, System.EventArgs e) {
@@ -76,27 +23,13 @@ namespace Temistocles {
                     Nascimento = DateTime.Parse(nascimentoDt.Value.ToString()),
                     Endereco = enderecoTxt.Text,
                     Contato = contatoTxt.Text,
-                    Peso = double.Parse(pesoNmr.Value.ToString()),
-                    Estatura = double.Parse(estaturaTxt.Text),
-                    IMC = double.Parse(imcTxt.Text),
-                    Resultado = classificacaoTxt.Text,
-                    Torax = double.Parse(toraxTxt.Text),
-                    Cintura = double.Parse(cinturaTxt.Text),
-                    Abdomen = double.Parse(abdomenTxt.Text),
-                    Quadril = double.Parse(quadrilTxt.Text),
-                    BracoDireito = double.Parse(bracoDireitoTxt.Text),
-                    BracoEsquerdo = double.Parse(bracoEsquerdoTxt.Text),
-                    AntebracoDireito = double.Parse(antebracoDireitoTxt.Text),
-                    AntebracoEsquerdo = double.Parse(antebracoEsquerdoTxt.Text),
-                    CoxaDireita = double.Parse(coxaDireitaTxt.Text),
-                    CoxaEsquerda = double.Parse(coxaEsquerdaTxt.Text),
-                    PanturrilhaDireita = double.Parse(panturrilhaDireitaTxt.Text),
-                    PanturrilhaEsquerda = double.Parse(panturrilhaEsquerdaTxt.Text),
-                    DataAvaliacao = DateTime.Parse(dataAvaliacaoDt.Value.ToString()),
                     EstaAtivo = true,
                 };
-                if(masculinoRdo.Checked) cliente.Sexo = "Masculino";
-                else cliente.Sexo = "Feminino";
+                if(masculinoRdo.Checked) {
+                    cliente.Sexo = "Masculino";
+                } else {
+                    cliente.Sexo = "Feminino";
+                }
 
                 ClienteModel.CadastrarCliente(cliente);
             } catch(Exception ex) {
@@ -104,19 +37,16 @@ namespace Temistocles {
             }
 
             LimparCampos();
-        }
 
-        private void estaturaTxt_TextChanged(object sender, EventArgs e) {
-            if(estaturaTxt.Text == "") return;
-            CalcularIMC();
-        }
+            WindowState = FormWindowState.Minimized;
 
-        private void masculinoRdo_CheckedChanged(object sender, EventArgs e) {
-            CalcularIMC();
-        }
+            string sexo;
+            if(masculinoRdo.Checked) sexo = "Masculino";
+            else sexo = "Feminino";
 
-        private void femininoRdo_CheckedChanged(object sender, EventArgs e) {
-            CalcularIMC();
+            CadastrarAvaliacao avaliacao = new CadastrarAvaliacao(sexo);
+            avaliacao.ShowDialog();
+
         }
 
         private void LimparCampos() {
@@ -124,22 +54,6 @@ namespace Temistocles {
             masculinoRdo.Checked = true;
             enderecoTxt.Clear();
             contatoTxt.Clear();
-            pesoNmr.Value = 0;
-            estaturaTxt.Clear();
-            imcTxt.Clear();
-            classificacaoTxt.Text = "";
-            toraxTxt.Clear();
-            cinturaTxt.Clear();
-            abdomenTxt.Clear();
-            quadrilTxt.Clear();
-            bracoDireitoTxt.Clear();
-            bracoEsquerdoTxt.Clear();
-            antebracoDireitoTxt.Clear();
-            antebracoEsquerdoTxt.Clear();
-            coxaDireitaTxt.Clear();
-            coxaEsquerdaTxt.Clear();
-            panturrilhaDireitaTxt.Clear();
-            panturrilhaEsquerdaTxt.Clear();
         }
 
         private void contatoTxt_Leave(object sender, EventArgs e) {
