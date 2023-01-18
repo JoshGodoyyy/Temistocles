@@ -172,7 +172,7 @@ namespace Temistocles {
         }
 
         private void historicoBtn_Click(object sender, EventArgs e) {
-            Historico historico = new Historico();
+            Historico historico = new Historico(int.Parse(clientesLst.SelectedValue.ToString()));
             historico.MdiParent = main;
             historico.Show();
         }

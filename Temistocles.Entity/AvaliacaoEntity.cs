@@ -2,6 +2,7 @@
     public class AvaliacaoEntity {
         public int Id { get; set; }
         public int IdCliente { get; set; }
+        public System.DateTime DataAvaliacao { get; set; }
         public double Peso { get; set; }
         public double Estatura { get; set; }
         public double Torax { get; set; }
@@ -16,6 +17,5 @@
         public double CoxaEsquerda { get; set; }
         public double PanturrilhaDireita { get; set; }
         public double PanturrilhaEsquerda { get; set; }
-        public System.DateTime DataAvaliacao { get; set; }
     }
 }

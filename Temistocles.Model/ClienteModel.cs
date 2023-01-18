@@ -32,5 +32,9 @@ namespace Temistocles.Model {
         public static List<AvaliacaoEntity> SelecionarAvaliacao(int idCliente) {
             return new Banco().SelecionarAvaliacao(idCliente);
         }
+
+        public static List<AvaliacaoEntity> Historico(int idCliente) {
+            return new Banco().Historico(idCliente);
+        }
     }
 }
