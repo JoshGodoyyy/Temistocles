@@ -5,8 +5,11 @@ using Temistocles.Model;
 
 namespace Temistocles {
     public partial class CadastroCliente : Form {
-        public CadastroCliente() {
+
+        readonly Main main;
+        public CadastroCliente(Main main) {
             InitializeComponent();
+            this.main = main;
         }
 
         private void cancelarBtn_Click(object sender, System.EventArgs e) {
@@ -17,6 +20,10 @@ namespace Temistocles {
         }
 
         private void salvarBtn_Click(object sender, System.EventArgs e) {
+            if(nomeTxt.Text == "" || enderecoTxt.Text == "" || contatoTxt.Text == "") {
+                MessageBox.Show("Todos os campos devem estar preenchidos", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             try {
                 ClienteEntity cliente = new ClienteEntity() {
                     Nome = nomeTxt.Text,
@@ -45,7 +52,8 @@ namespace Temistocles {
             else sexo = "Feminino";
 
             CadastrarAvaliacao avaliacao = new CadastrarAvaliacao(sexo);
-            avaliacao.ShowDialog();
+            avaliacao.MdiParent = main;
+            avaliacao.Show();
 
         }
 

@@ -25,6 +25,7 @@
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Avaliacoes));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pesquisarTxt = new System.Windows.Forms.TextBox();
             this.clientesLst = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panturrilhaEsquerdaTxt = new System.Windows.Forms.TextBox();
@@ -52,7 +53,6 @@
             this.cancelarBtn = new System.Windows.Forms.Button();
             this.novaBtn = new System.Windows.Forms.Button();
             this.historicoBtn = new System.Windows.Forms.Button();
-            this.pesquisarTxt = new System.Windows.Forms.TextBox();
             this.dataAvaliacaoDt = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.calcularLnk = new System.Windows.Forms.LinkLabel();
@@ -78,6 +78,14 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Clientes";
+            // 
+            // pesquisarTxt
+            // 
+            this.pesquisarTxt.Location = new System.Drawing.Point(6, 19);
+            this.pesquisarTxt.Name = "pesquisarTxt";
+            this.pesquisarTxt.Size = new System.Drawing.Size(188, 20);
+            this.pesquisarTxt.TabIndex = 23;
+            this.pesquisarTxt.TextChanged += new System.EventHandler(this.pesquisarTxt_TextChanged);
             // 
             // clientesLst
             // 
@@ -323,14 +331,6 @@
             this.historicoBtn.UseVisualStyleBackColor = true;
             this.historicoBtn.Click += new System.EventHandler(this.historicoBtn_Click);
             // 
-            // pesquisarTxt
-            // 
-            this.pesquisarTxt.Location = new System.Drawing.Point(6, 19);
-            this.pesquisarTxt.Name = "pesquisarTxt";
-            this.pesquisarTxt.Size = new System.Drawing.Size(188, 20);
-            this.pesquisarTxt.TabIndex = 23;
-            this.pesquisarTxt.TextChanged += new System.EventHandler(this.pesquisarTxt_TextChanged);
-            // 
             // dataAvaliacaoDt
             // 
             this.dataAvaliacaoDt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -358,6 +358,7 @@
             this.calcularLnk.TabIndex = 15;
             this.calcularLnk.TabStop = true;
             this.calcularLnk.Text = "Calcular";
+            this.calcularLnk.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.calcularLnk_LinkClicked);
             // 
             // imcTxt
             // 
@@ -365,7 +366,6 @@
             this.imcTxt.Name = "imcTxt";
             this.imcTxt.Size = new System.Drawing.Size(44, 20);
             this.imcTxt.TabIndex = 14;
-            this.imcTxt.Text = "130,50";
             // 
             // label7
             // 

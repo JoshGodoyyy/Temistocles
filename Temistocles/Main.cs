@@ -28,7 +28,7 @@ namespace Temistocles {
         private void novoClienteBtn_Click(object sender, EventArgs e) {
             Form formOpenned = Application.OpenForms["CadastroCliente"];
             if(formOpenned == null) {
-                formOpenned = new CadastroCliente();
+                formOpenned = new CadastroCliente(this);
                 formOpenned.MdiParent = this;
                 formOpenned.Show();
             }
@@ -46,7 +46,7 @@ namespace Temistocles {
         private void avaliacoesBtn_Click(object sender, EventArgs e) {
             Form formOpenned = Application.OpenForms["Avaliacoes"];
             if(formOpenned == null) {
-                formOpenned = new Avaliacoes();
+                formOpenned = new Avaliacoes(this);
                 formOpenned.MdiParent = this;
                 formOpenned.Show();
             }

@@ -13,6 +13,10 @@ namespace Temistocles.Model {
             return new Banco().ListarCliente();
         }
 
+        public static List<ClienteEntity> PesquisarCliente(string nome) {
+            return new Banco().PesquisarCliente(nome);
+        }
+
         public static List<ClienteEntity> SelecionarCliente(int id) {
             return new Banco().SelecionarCliente(id);
         }
@@ -23,6 +27,10 @@ namespace Temistocles.Model {
 
         public static AvaliacaoEntity CriarAvaliacao(AvaliacaoEntity avaliacao) {
             return new Banco().CriarAvaliacao(avaliacao);
+        }
+
+        public static List<AvaliacaoEntity> SelecionarAvaliacao(int idCliente) {
+            return new Banco().SelecionarAvaliacao(idCliente);
         }
     }
 }

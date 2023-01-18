@@ -48,6 +48,28 @@ namespace Temistocles.DAO {
             }
         }
 
+        public List<ClienteEntity> PesquisarCliente(string nome) {
+            using(connection = new SQLiteConnection(path)) {
+                connection.Open();
+                command = connection.CreateCommand();
+                command.CommandText = "select * from clientes where nome like @nome";
+                command.Parameters.AddWithValue("nome", nome);
+
+                reader = command.ExecuteReader();
+                List<ClienteEntity> clientes = new List<ClienteEntity>();
+
+                while(reader.Read()) {
+                    ClienteEntity cliente = new ClienteEntity() {
+                        Id = Convert.ToInt32(reader["id"]),
+                        Nome = Convert.ToString(reader["nome"])
+                    };
+                    clientes.Add(cliente);
+                }
+
+                return clientes;
+            }
+        }
+
         public List<ClienteEntity> SelecionarCliente(int id) {
             using(connection = new SQLiteConnection(path)) {
                 connection.Open();
@@ -119,13 +141,42 @@ namespace Temistocles.DAO {
             }
         }
 
-        //public List<AvaliacaoEntity> SelecionarAvaliacao(int id) {
-        //    using(connection = new SQLiteConnection(path)) {
-        //        connection.Open();
-        //        command = connection.CreateCommand();
-        //        command.CommandText = "select * from avaliacoes where idcliente = @idcliente";
-        //        command.Parameters.AddWithValue("idcliente", id);
-        //    }
-        //}
+        public List<AvaliacaoEntity> SelecionarAvaliacao(int idCliente) {
+            using(connection = new SQLiteConnection(path)) {
+                connection.Open();
+                command = connection.CreateCommand();
+                command.CommandText = "select * from avaliacoes where idcliente = @idcliente order by dataavaliacao desc limit 1";
+                command.Parameters.AddWithValue("idcliente", idCliente);
+
+                reader = command.ExecuteReader();
+                List<AvaliacaoEntity> avaliacoes = new List<AvaliacaoEntity>();
+
+                while (reader.Read()) {
+                    AvaliacaoEntity avaliacao = new AvaliacaoEntity() {
+                        Id = Convert.ToInt32(reader["id"]),
+                        IdCliente = Convert.ToInt32(reader["idcliente"]),
+                        Peso = Convert.ToDouble(reader["peso"]),
+                        Estatura = Convert.ToDouble(reader["estatura"]),
+                        Torax = Convert.ToDouble(reader["torax"]),
+                        Cintura = Convert.ToDouble(reader["cintura"]),
+                        Abdomen = Convert.ToDouble(reader["abdomen"]),
+                        Quadril = Convert.ToDouble(reader["quadril"]),
+                        BracoDireito = Convert.ToDouble(reader["bracodireito"]),
+                        BracoEsquerdo = Convert.ToDouble(reader["bracoesquerdo"]),
+                        AntebracoDireito = Convert.ToDouble(reader["antebracodireito"]),
+                        AntebracoEsquerdo = Convert.ToDouble(reader["antebracoesquerdo"]),
+                        CoxaDireita = Convert.ToDouble(reader["coxadireita"]),
+                        CoxaEsquerda = Convert.ToDouble(reader["coxaesquerda"]),
+                        PanturrilhaDireita = Convert.ToDouble(reader["panturrilhadireita"]),
+                        PanturrilhaEsquerda = Convert.ToDouble(reader["panturrilhaesquerda"]),
+                        DataAvaliacao = Convert.ToDateTime(reader["dataavaliacao"]),
+                    };
+
+                    avaliacoes.Add(avaliacao);
+                }
+
+                return avaliacoes;
+            }
+        }
     }
 }
