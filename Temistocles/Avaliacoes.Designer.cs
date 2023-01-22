@@ -63,6 +63,7 @@
             this.pesoNmr = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.classificacaoLbl = new System.Windows.Forms.Label();
+            this.limparBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pesoNmr)).BeginInit();
@@ -84,7 +85,7 @@
             this.pesquisarTxt.Location = new System.Drawing.Point(6, 19);
             this.pesquisarTxt.Name = "pesquisarTxt";
             this.pesquisarTxt.Size = new System.Drawing.Size(188, 20);
-            this.pesquisarTxt.TabIndex = 23;
+            this.pesquisarTxt.TabIndex = 0;
             this.pesquisarTxt.TextChanged += new System.EventHandler(this.pesquisarTxt_TextChanged);
             // 
             // clientesLst
@@ -93,7 +94,7 @@
             this.clientesLst.Location = new System.Drawing.Point(6, 45);
             this.clientesLst.Name = "clientesLst";
             this.clientesLst.Size = new System.Drawing.Size(188, 251);
-            this.clientesLst.TabIndex = 0;
+            this.clientesLst.TabIndex = 1;
             this.clientesLst.SelectedIndexChanged += new System.EventHandler(this.clientesLst_SelectedIndexChanged);
             // 
             // groupBox2
@@ -132,14 +133,14 @@
             this.panturrilhaEsquerdaTxt.Location = new System.Drawing.Point(178, 162);
             this.panturrilhaEsquerdaTxt.Name = "panturrilhaEsquerdaTxt";
             this.panturrilhaEsquerdaTxt.Size = new System.Drawing.Size(100, 20);
-            this.panturrilhaEsquerdaTxt.TabIndex = 40;
+            this.panturrilhaEsquerdaTxt.TabIndex = 17;
             // 
             // panturrilhaDireitaTxt
             // 
             this.panturrilhaDireitaTxt.Location = new System.Drawing.Point(72, 162);
             this.panturrilhaDireitaTxt.Name = "panturrilhaDireitaTxt";
             this.panturrilhaDireitaTxt.Size = new System.Drawing.Size(100, 20);
-            this.panturrilhaDireitaTxt.TabIndex = 39;
+            this.panturrilhaDireitaTxt.TabIndex = 16;
             // 
             // label17
             // 
@@ -155,14 +156,14 @@
             this.coxaEsquerdaTxt.Location = new System.Drawing.Point(178, 136);
             this.coxaEsquerdaTxt.Name = "coxaEsquerdaTxt";
             this.coxaEsquerdaTxt.Size = new System.Drawing.Size(100, 20);
-            this.coxaEsquerdaTxt.TabIndex = 37;
+            this.coxaEsquerdaTxt.TabIndex = 15;
             // 
             // coxaDireitaTxt
             // 
             this.coxaDireitaTxt.Location = new System.Drawing.Point(72, 136);
             this.coxaDireitaTxt.Name = "coxaDireitaTxt";
             this.coxaDireitaTxt.Size = new System.Drawing.Size(100, 20);
-            this.coxaDireitaTxt.TabIndex = 36;
+            this.coxaDireitaTxt.TabIndex = 14;
             // 
             // label16
             // 
@@ -178,14 +179,14 @@
             this.antebracoEsquerdoTxt.Location = new System.Drawing.Point(178, 110);
             this.antebracoEsquerdoTxt.Name = "antebracoEsquerdoTxt";
             this.antebracoEsquerdoTxt.Size = new System.Drawing.Size(100, 20);
-            this.antebracoEsquerdoTxt.TabIndex = 34;
+            this.antebracoEsquerdoTxt.TabIndex = 13;
             // 
             // antebracoDireitoTxt
             // 
             this.antebracoDireitoTxt.Location = new System.Drawing.Point(72, 110);
             this.antebracoDireitoTxt.Name = "antebracoDireitoTxt";
             this.antebracoDireitoTxt.Size = new System.Drawing.Size(100, 20);
-            this.antebracoDireitoTxt.TabIndex = 33;
+            this.antebracoDireitoTxt.TabIndex = 12;
             // 
             // label15
             // 
@@ -201,14 +202,14 @@
             this.bracoEsquerdoTxt.Location = new System.Drawing.Point(178, 84);
             this.bracoEsquerdoTxt.Name = "bracoEsquerdoTxt";
             this.bracoEsquerdoTxt.Size = new System.Drawing.Size(100, 20);
-            this.bracoEsquerdoTxt.TabIndex = 31;
+            this.bracoEsquerdoTxt.TabIndex = 11;
             // 
             // bracoDireitoTxt
             // 
             this.bracoDireitoTxt.Location = new System.Drawing.Point(72, 84);
             this.bracoDireitoTxt.Name = "bracoDireitoTxt";
             this.bracoDireitoTxt.Size = new System.Drawing.Size(100, 20);
-            this.bracoDireitoTxt.TabIndex = 30;
+            this.bracoDireitoTxt.TabIndex = 10;
             // 
             // label14
             // 
@@ -242,7 +243,7 @@
             this.quadrilTxt.Location = new System.Drawing.Point(209, 45);
             this.quadrilTxt.Name = "quadrilTxt";
             this.quadrilTxt.Size = new System.Drawing.Size(69, 20);
-            this.quadrilTxt.TabIndex = 26;
+            this.quadrilTxt.TabIndex = 9;
             // 
             // label11
             // 
@@ -258,7 +259,7 @@
             this.abdomenTxt.Location = new System.Drawing.Point(67, 45);
             this.abdomenTxt.Name = "abdomenTxt";
             this.abdomenTxt.Size = new System.Drawing.Size(87, 20);
-            this.abdomenTxt.TabIndex = 24;
+            this.abdomenTxt.TabIndex = 8;
             // 
             // label10
             // 
@@ -274,14 +275,14 @@
             this.cinturaTxt.Location = new System.Drawing.Point(191, 19);
             this.cinturaTxt.Name = "cinturaTxt";
             this.cinturaTxt.Size = new System.Drawing.Size(87, 20);
-            this.cinturaTxt.TabIndex = 22;
+            this.cinturaTxt.TabIndex = 7;
             // 
             // toraxTxt
             // 
             this.toraxTxt.Location = new System.Drawing.Point(49, 19);
             this.toraxTxt.Name = "toraxTxt";
             this.toraxTxt.Size = new System.Drawing.Size(87, 20);
-            this.toraxTxt.TabIndex = 20;
+            this.toraxTxt.TabIndex = 6;
             // 
             // label9
             // 
@@ -303,30 +304,30 @@
             // 
             // cancelarBtn
             // 
-            this.cancelarBtn.Location = new System.Drawing.Point(427, 284);
+            this.cancelarBtn.Location = new System.Drawing.Point(427, 287);
             this.cancelarBtn.Name = "cancelarBtn";
-            this.cancelarBtn.Size = new System.Drawing.Size(75, 30);
-            this.cancelarBtn.TabIndex = 20;
+            this.cancelarBtn.Size = new System.Drawing.Size(75, 27);
+            this.cancelarBtn.TabIndex = 22;
             this.cancelarBtn.Text = "Cancelar";
             this.cancelarBtn.UseVisualStyleBackColor = true;
             this.cancelarBtn.Click += new System.EventHandler(this.cancelarBtn_Click);
             // 
             // novaBtn
             // 
-            this.novaBtn.Location = new System.Drawing.Point(346, 284);
+            this.novaBtn.Location = new System.Drawing.Point(304, 287);
             this.novaBtn.Name = "novaBtn";
-            this.novaBtn.Size = new System.Drawing.Size(75, 30);
+            this.novaBtn.Size = new System.Drawing.Size(117, 27);
             this.novaBtn.TabIndex = 21;
-            this.novaBtn.Text = "Nova";
+            this.novaBtn.Text = "Salvar Avaliação";
             this.novaBtn.UseVisualStyleBackColor = true;
             this.novaBtn.Click += new System.EventHandler(this.novaBtn_Click);
             // 
             // historicoBtn
             // 
-            this.historicoBtn.Location = new System.Drawing.Point(218, 284);
+            this.historicoBtn.Location = new System.Drawing.Point(218, 287);
             this.historicoBtn.Name = "historicoBtn";
-            this.historicoBtn.Size = new System.Drawing.Size(122, 30);
-            this.historicoBtn.TabIndex = 22;
+            this.historicoBtn.Size = new System.Drawing.Size(80, 27);
+            this.historicoBtn.TabIndex = 20;
             this.historicoBtn.Text = "Histórico";
             this.historicoBtn.UseVisualStyleBackColor = true;
             this.historicoBtn.Click += new System.EventHandler(this.historicoBtn_Click);
@@ -337,7 +338,7 @@
             this.dataAvaliacaoDt.Location = new System.Drawing.Point(414, 258);
             this.dataAvaliacaoDt.Name = "dataAvaliacaoDt";
             this.dataAvaliacaoDt.Size = new System.Drawing.Size(88, 20);
-            this.dataAvaliacaoDt.TabIndex = 23;
+            this.dataAvaliacaoDt.TabIndex = 18;
             this.dataAvaliacaoDt.Value = new System.DateTime(2023, 1, 15, 0, 0, 0, 0);
             // 
             // label1
@@ -355,7 +356,7 @@
             this.calcularLnk.Location = new System.Drawing.Point(403, 15);
             this.calcularLnk.Name = "calcularLnk";
             this.calcularLnk.Size = new System.Drawing.Size(45, 13);
-            this.calcularLnk.TabIndex = 15;
+            this.calcularLnk.TabIndex = 4;
             this.calcularLnk.TabStop = true;
             this.calcularLnk.Text = "Calcular";
             this.calcularLnk.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.calcularLnk_LinkClicked);
@@ -365,7 +366,7 @@
             this.imcTxt.Location = new System.Drawing.Point(353, 12);
             this.imcTxt.Name = "imcTxt";
             this.imcTxt.Size = new System.Drawing.Size(44, 20);
-            this.imcTxt.TabIndex = 14;
+            this.imcTxt.TabIndex = 3;
             // 
             // label7
             // 
@@ -381,7 +382,7 @@
             this.estaturaTxt.Location = new System.Drawing.Point(273, 12);
             this.estaturaTxt.Name = "estaturaTxt";
             this.estaturaTxt.Size = new System.Drawing.Size(39, 20);
-            this.estaturaTxt.TabIndex = 10;
+            this.estaturaTxt.TabIndex = 2;
             // 
             // label5
             // 
@@ -403,7 +404,7 @@
             0});
             this.pesoNmr.Name = "pesoNmr";
             this.pesoNmr.Size = new System.Drawing.Size(59, 20);
-            this.pesoNmr.TabIndex = 12;
+            this.pesoNmr.TabIndex = 5;
             // 
             // label4
             // 
@@ -422,11 +423,22 @@
             this.classificacaoLbl.Size = new System.Drawing.Size(0, 13);
             this.classificacaoLbl.TabIndex = 25;
             // 
+            // limparBtn
+            // 
+            this.limparBtn.Location = new System.Drawing.Point(218, 258);
+            this.limparBtn.Name = "limparBtn";
+            this.limparBtn.Size = new System.Drawing.Size(154, 23);
+            this.limparBtn.TabIndex = 19;
+            this.limparBtn.Text = "Limpar Campos";
+            this.limparBtn.UseVisualStyleBackColor = true;
+            this.limparBtn.Click += new System.EventHandler(this.limparBtn_Click);
+            // 
             // Avaliacoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(514, 322);
+            this.Controls.Add(this.limparBtn);
             this.Controls.Add(this.classificacaoLbl);
             this.Controls.Add(this.calcularLnk);
             this.Controls.Add(this.label1);
@@ -499,5 +511,6 @@
         private System.Windows.Forms.NumericUpDown pesoNmr;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label classificacaoLbl;
+        private System.Windows.Forms.Button limparBtn;
     }
 }

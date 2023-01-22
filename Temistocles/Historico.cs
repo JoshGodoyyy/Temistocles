@@ -1,18 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Temistocles.Entity;
 using Temistocles.Model;
 
 namespace Temistocles {
     public partial class Historico : Form {
-        private int id;
+        private readonly int id;
 
         public Historico(int id) {
             InitializeComponent();
@@ -41,7 +35,7 @@ namespace Temistocles {
                 for(int i = 2; i < historicoDG.Columns.Count; i++) {
                     historicoDG.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
                 }
-                
+
                 historicoDG.Columns[2].HeaderText = "Data de Avaliação";
                 historicoDG.Columns[9].HeaderText = "Braço direito";
                 historicoDG.Columns[10].HeaderText = "Braço esquerdo";
@@ -57,7 +51,11 @@ namespace Temistocles {
         }
 
         private void graficoBtn_Click(object sender, EventArgs e) {
-
+            Form formOpenned = Application.OpenForms["Grafico"];
+            if(formOpenned == null) {
+                formOpenned = new Grafico(id);
+                formOpenned.ShowDialog();
+            }
         }
 
         private void sairBtn_Click(object sender, EventArgs e) {

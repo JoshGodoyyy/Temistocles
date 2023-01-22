@@ -131,44 +131,31 @@ namespace Temistocles {
         }
 
         private void novaBtn_Click(object sender, EventArgs e) {
-            LimparCampos();
-            CalcularIMC();
-            switch(novaBtn.Text) {
-                case "Salvar":
-                    try {
-                        AvaliacaoEntity avaliacao = new AvaliacaoEntity() {
-                            IdCliente = int.Parse(clientesLst.SelectedValue.ToString()),
-                            Estatura = double.Parse(estaturaTxt.Text),
-                            Peso = double.Parse(pesoNmr.Value.ToString()),
-                            Torax = double.Parse(toraxTxt.Text),
-                            Cintura = double.Parse(cinturaTxt.Text),
-                            Abdomen = double.Parse(abdomenTxt.Text),
-                            Quadril = double.Parse(quadrilTxt.Text),
-                            BracoDireito = double.Parse(bracoDireitoTxt.Text),
-                            BracoEsquerdo = double.Parse(bracoEsquerdoTxt.Text),
-                            AntebracoDireito = double.Parse(antebracoDireitoTxt.Text),
-                            AntebracoEsquerdo = double.Parse(antebracoEsquerdoTxt.Text),
-                            CoxaDireita = double.Parse(coxaDireitaTxt.Text),
-                            CoxaEsquerda = double.Parse(coxaEsquerdaTxt.Text),
-                            PanturrilhaDireita = double.Parse(panturrilhaDireitaTxt.Text),
-                            PanturrilhaEsquerda = double.Parse(panturrilhaEsquerdaTxt.Text),
-                            DataAvaliacao = DateTime.Parse(dataAvaliacaoDt.Text.ToString()),
-                        };
+            try {
+                AvaliacaoEntity avaliacao = new AvaliacaoEntity() {
+                    IdCliente = int.Parse(clientesLst.SelectedValue.ToString()),
+                    Peso = double.Parse(pesoNmr.Value.ToString()),
+                    Estatura = double.Parse(estaturaTxt.Text),
+                    Torax = double.Parse(toraxTxt.Text),
+                    Cintura = double.Parse(cinturaTxt.Text),
+                    Abdomen = double.Parse(abdomenTxt.Text),
+                    Quadril = double.Parse(quadrilTxt.Text),
+                    BracoDireito = double.Parse(bracoDireitoTxt.Text),
+                    BracoEsquerdo = double.Parse(bracoEsquerdoTxt.Text),
+                    AntebracoDireito = double.Parse(antebracoDireitoTxt.Text),
+                    AntebracoEsquerdo = double.Parse(antebracoEsquerdoTxt.Text),
+                    CoxaDireita = double.Parse(coxaDireitaTxt.Text),
+                    CoxaEsquerda = double.Parse(coxaEsquerdaTxt.Text),
+                    PanturrilhaDireita = double.Parse(panturrilhaDireitaTxt.Text),
+                    PanturrilhaEsquerda = double.Parse(panturrilhaEsquerdaTxt.Text),
+                    DataAvaliacao = DateTime.Parse(dataAvaliacaoDt.Text.ToString())
+                };
 
-                        ClienteModel.CriarAvaliacao(avaliacao);
-                    } catch(Exception ex) {
-                        MessageBox.Show(ex.Message, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    ListarClientes();
-                    pesoNmr.Value = 0;
-                    estaturaTxt.Clear();
-                    LimparCampos();
-                    novaBtn.Text = "Nova";
-                    break;
-                default:
-                    novaBtn.Text = "Salvar";
-                    break;
+                ClienteModel.CriarAvaliacao(avaliacao);
+            } catch(Exception ex) {
+                MessageBox.Show(ex.Message, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            LimparCampos();
         }
 
         private void historicoBtn_Click(object sender, EventArgs e) {
@@ -191,6 +178,12 @@ namespace Temistocles {
 
         private void calcularLnk_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             CalcularIMC();
+        }
+
+        private void limparBtn_Click(object sender, EventArgs e) {
+            LimparCampos();
+            CalcularIMC();
+            dataAvaliacaoDt.Value = DateTime.Now;
         }
     }
 }
