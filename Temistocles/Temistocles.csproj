@@ -93,6 +93,12 @@
     <Compile Include="EditarCliente.Designer.cs">
       <DependentUpon>EditarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="FluxoDeCaixa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FluxoDeCaixa.Designer.cs">
+      <DependentUpon>FluxoDeCaixa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="Grafico.cs">
       <SubType>Form</SubType>
@@ -106,6 +112,12 @@
     <Compile Include="Historico.Designer.cs">
       <DependentUpon>Historico.cs</DependentUpon>
     </Compile>
+    <Compile Include="Lancamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lancamentos.Designer.cs">
+      <DependentUpon>Lancamentos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +129,12 @@
     </Compile>
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pagamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pagamentos.Designer.cs">
+      <DependentUpon>Pagamentos.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -132,17 +150,26 @@
     <EmbeddedResource Include="EditarCliente.resx">
       <DependentUpon>EditarCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FluxoDeCaixa.resx">
+      <DependentUpon>FluxoDeCaixa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Grafico.resx">
       <DependentUpon>Grafico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Historico.resx">
       <DependentUpon>Historico.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Lancamentos.resx">
+      <DependentUpon>Lancamentos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pagamentos.resx">
+      <DependentUpon>Pagamentos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

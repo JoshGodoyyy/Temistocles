@@ -53,11 +53,21 @@ namespace Temistocles {
         }
 
         private void pagamentosBtn_Click(object sender, EventArgs e) {
-
+            Form formOpenned = Application.OpenForms["Pagamentos"];
+            if(formOpenned == null) {
+                formOpenned = new Pagamentos(this);
+                formOpenned.MdiParent = this;
+                formOpenned.Show();
+            }
         }
 
         private void fluxoDeCaixaBtn_Click(object sender, EventArgs e) {
-
+            Form formOpenned = Application.OpenForms["FluxoDeCaixa"];
+            if(formOpenned == null) {
+                formOpenned = new FluxoDeCaixa(this);
+                formOpenned.MdiParent = this;
+                formOpenned.Show();
+            }
         }
 
         private void logoutBtn_Click(object sender, EventArgs e) {

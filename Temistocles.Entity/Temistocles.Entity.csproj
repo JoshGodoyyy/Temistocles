@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AvaliacaoEntity.cs" />
+    <Compile Include="BalancoEntity.cs" />
     <Compile Include="ClienteEntity.cs" />
     <Compile Include="LoginEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
