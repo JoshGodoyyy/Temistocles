@@ -54,5 +54,29 @@ namespace Temistocles.DAO {
                 return extrato;
             }
         }
+
+        public List<BalancoEntity> ListarPorData(string tipo, DateTime data) {
+            using(connection = new SQLiteConnection(path)) {
+                connection.Open();
+                command = connection.CreateCommand();
+                command.CommandText = "select * from balanco where tipo = @tipo and data = @data";
+                command.Parameters.AddWithValue("tipo", tipo);
+                command.Parameters.AddWithValue("data", data);
+
+                reader = command.ExecuteReader();
+                List<BalancoEntity> extrato = new List<BalancoEntity>();
+                while(reader.Read()) {
+                    BalancoEntity item = new BalancoEntity() {
+                        Id = Convert.ToInt32(reader["id"]),
+                        Descricao = Convert.ToString(reader["descricao"]),
+                        Valor = Convert.ToDouble(reader["valor"]),
+                        Tipo = Convert.ToString(reader["tipo"]),
+                        Data = Convert.ToDateTime(reader["data"]),
+                    };
+                    extrato.Add(item);
+                }
+                return extrato;
+            }
+        }
     }
 }

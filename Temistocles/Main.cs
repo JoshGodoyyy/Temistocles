@@ -7,6 +7,7 @@ namespace Temistocles {
         public Main() {
             InitializeComponent();
             versaoTxt.Text = Global.Versao;
+            companyLbl.Text = Global.CompanyName;
             Conexao();
             Width = Screen.PrimaryScreen.Bounds.Width;
             Height = Screen.PrimaryScreen.Bounds.Height;
@@ -64,10 +65,23 @@ namespace Temistocles {
         private void fluxoDeCaixaBtn_Click(object sender, EventArgs e) {
             Form formOpenned = Application.OpenForms["FluxoDeCaixa"];
             if(formOpenned == null) {
-                formOpenned = new FluxoDeCaixa(this);
+                formOpenned = new FluxoDeCaixa();
                 formOpenned.MdiParent = this;
                 formOpenned.Show();
             }
+        }
+
+        private void lancamentosBtn_Click(object sender, EventArgs e) {
+            Form formOpenned = Application.OpenForms["Lancamentos"];
+            if(formOpenned == null) {
+                formOpenned = new Lancamentos();
+                formOpenned.MdiParent = this;
+                formOpenned.Show();
+            }
+        }
+
+        private void editarBtn_Click(object sender, EventArgs e) {
+
         }
 
         private void logoutBtn_Click(object sender, EventArgs e) {

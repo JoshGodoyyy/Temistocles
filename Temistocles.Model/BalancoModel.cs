@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Temistocles.DAO;
 using Temistocles.Entity;
 
@@ -10,6 +11,10 @@ namespace Temistocles.Model {
 
         public static List<BalancoEntity> ListarTipo(string tipo) {
             return new BalancoDAO().ListarTipo(tipo);
+        }
+
+        public static List<BalancoEntity> ListarPorData(string tipo, DateTime data) {
+            return new BalancoDAO().ListarPorData(tipo, data);
         }
     }
 }
