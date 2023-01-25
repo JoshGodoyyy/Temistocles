@@ -9,12 +9,8 @@ namespace Temistocles.Model {
             return new BalancoDAO().ListarTransacoes();
         }
 
-        public static List<BalancoEntity> ListarTipo(string tipo) {
-            return new BalancoDAO().ListarTipo(tipo);
-        }
-
-        public static List<BalancoEntity> ListarPorData(string tipo, DateTime data) {
-            return new BalancoDAO().ListarPorData(tipo, data);
+        public static List<BalancoEntity> ListarPorMes(string tipo, DateTime diaMinimo, DateTime diaMaximo) {
+            return new BalancoDAO().ListarPorMes(tipo, diaMinimo, diaMaximo);
         }
     }
 }

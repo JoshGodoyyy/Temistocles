@@ -27,6 +27,8 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.versaoTxt = new System.Windows.Forms.ToolStripStatusLabel();
             this.usuarioTxt = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.companyLbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.cadastrosTab = new System.Windows.Forms.TabPage();
@@ -39,11 +41,6 @@
             this.sairTab = new System.Windows.Forms.TabPage();
             this.encerrarBtn = new System.Windows.Forms.Button();
             this.logoutBtn = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lancamentosBtn = new System.Windows.Forms.Button();
-            this.editarBtn = new System.Windows.Forms.Button();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.companyLbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -75,6 +72,17 @@
             // 
             this.usuarioTxt.Name = "usuarioTxt";
             this.usuarioTxt.Size = new System.Drawing.Size(0, 17);
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(785, 17);
+            this.toolStripStatusLabel1.Spring = true;
+            // 
+            // companyLbl
+            // 
+            this.companyLbl.Name = "companyLbl";
+            this.companyLbl.Size = new System.Drawing.Size(0, 17);
             // 
             // panel1
             // 
@@ -150,9 +158,6 @@
             // 
             // financeiroTab
             // 
-            this.financeiroTab.Controls.Add(this.editarBtn);
-            this.financeiroTab.Controls.Add(this.lancamentosBtn);
-            this.financeiroTab.Controls.Add(this.panel2);
             this.financeiroTab.Controls.Add(this.fluxoDeCaixaBtn);
             this.financeiroTab.Controls.Add(this.pagamentosBtn);
             this.financeiroTab.Location = new System.Drawing.Point(4, 22);
@@ -225,52 +230,6 @@
             this.logoutBtn.UseVisualStyleBackColor = true;
             this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(162, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1, 34);
-            this.panel2.TabIndex = 3;
-            // 
-            // lancamentosBtn
-            // 
-            this.lancamentosBtn.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lancamentosBtn.FlatAppearance.BorderSize = 0;
-            this.lancamentosBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lancamentosBtn.Location = new System.Drawing.Point(163, 0);
-            this.lancamentosBtn.Name = "lancamentosBtn";
-            this.lancamentosBtn.Size = new System.Drawing.Size(83, 34);
-            this.lancamentosBtn.TabIndex = 2;
-            this.lancamentosBtn.Text = "Lançamentos";
-            this.lancamentosBtn.UseVisualStyleBackColor = true;
-            this.lancamentosBtn.Click += new System.EventHandler(this.lancamentosBtn_Click);
-            // 
-            // editarBtn
-            // 
-            this.editarBtn.Dock = System.Windows.Forms.DockStyle.Left;
-            this.editarBtn.FlatAppearance.BorderSize = 0;
-            this.editarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editarBtn.Location = new System.Drawing.Point(246, 0);
-            this.editarBtn.Name = "editarBtn";
-            this.editarBtn.Size = new System.Drawing.Size(75, 34);
-            this.editarBtn.TabIndex = 4;
-            this.editarBtn.Text = "Editar";
-            this.editarBtn.UseVisualStyleBackColor = true;
-            this.editarBtn.Click += new System.EventHandler(this.editarBtn_Click);
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(754, 17);
-            this.toolStripStatusLabel1.Spring = true;
-            // 
-            // companyLbl
-            // 
-            this.companyLbl.Name = "companyLbl";
-            this.companyLbl.Size = new System.Drawing.Size(0, 17);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,9 +274,6 @@
         public System.Windows.Forms.TabPage financeiroTab;
         private System.Windows.Forms.TabControl tabControl1;
         public System.Windows.Forms.Button logoutBtn;
-        private System.Windows.Forms.Button editarBtn;
-        private System.Windows.Forms.Button lancamentosBtn;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel companyLbl;
     }

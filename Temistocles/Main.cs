@@ -71,19 +71,6 @@ namespace Temistocles {
             }
         }
 
-        private void lancamentosBtn_Click(object sender, EventArgs e) {
-            Form formOpenned = Application.OpenForms["Lancamentos"];
-            if(formOpenned == null) {
-                formOpenned = new Lancamentos();
-                formOpenned.MdiParent = this;
-                formOpenned.Show();
-            }
-        }
-
-        private void editarBtn_Click(object sender, EventArgs e) {
-
-        }
-
         private void logoutBtn_Click(object sender, EventArgs e) {
             Global.estaLogado = false;
             Conexao();

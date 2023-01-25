@@ -7,38 +7,43 @@ using Temistocles.Model;
 
 namespace Temistocles {
     public partial class FluxoDeCaixa : Form {
+        double valorEntradas = 0;
+        double valorSaidas = 0;
+
         public FluxoDeCaixa() {
             InitializeComponent();
-            ListarTransacoes();
             mesesCb.SelectedIndex = DateTime.Now.Month - 1;
+            ListarTransacoes();
+        }
+
+        private DateTime DataMinima() {
+            int ano = DateTime.Now.Year;
+            return DateTime.Parse($"01/{mesesCb.SelectedIndex + 1}/{ano}");
+        }
+
+        private DateTime DataMaxima() {
+            int ano = DateTime.Now.Year;
+            int dia = DateTime.DaysInMonth(ano, mesesCb.SelectedIndex + 1);
+            return DateTime.Parse($"{dia}/{mesesCb.SelectedIndex + 1}/{ano}");
         }
 
         public void ListarTransacoes() {
             List<BalancoEntity> entradas = new List<BalancoEntity>();
             List<BalancoEntity> saidas = new List<BalancoEntity>();
 
-            if(mesRdo.Checked) {
-                try {
-                    entradas = BalancoModel.ListarTipo("Entrada");
-                    saidas = BalancoModel.ListarTipo("Saída");
-                } catch(Exception ex) {
-                    MessageBox.Show(ex.Message, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            } else {
-                try {
-                    entradas = BalancoModel.ListarPorData("Entrada", buscarDt.Value);
-                    saidas = BalancoModel.ListarPorData("Saída", buscarDt.Value);
-                } catch(Exception ex) {
-                    MessageBox.Show(ex.Message, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            try {
+                entradas = BalancoModel.ListarPorMes("Entrada", DataMinima(), DataMaxima());
+                saidas = BalancoModel.ListarPorMes("Saída", DataMinima(), DataMaxima());
+            } catch(Exception ex) {
+                MessageBox.Show(ex.Message, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
             entradasDg.DataSource = entradas;
             entradasDg.Columns[0].Visible = false;
             entradasDg.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             entradasDg.Columns[1].HeaderText = "Descrição";
             entradasDg.Columns[3].Visible = false;
 
-            double valorEntradas = 0;
             foreach(var item in entradas) {
                 valorEntradas += item.Valor;
                 entradasLbl.Text = "R$ " + valorEntradas.ToString();
@@ -50,7 +55,6 @@ namespace Temistocles {
             saidasDg.Columns[1].HeaderText = "Descrição";
             saidasDg.Columns[3].Visible = false;
 
-            double valorSaidas = 0;
             foreach(var item in saidas) {
                 valorSaidas += item.Valor;
                 saidasLbl.Text = "R$ " + valorSaidas.ToString();
@@ -68,22 +72,11 @@ namespace Temistocles {
             else totalLbl.ForeColor = Color.Black;
         }
 
-        private void Radios(object sender, EventArgs e) {
-            ListarTransacoes();
-            if (mesRdo.Checked) {
-                mesesCb.Visible = true;
-                buscarDt.Visible = false;
-            } else {
-                mesesCb.Visible = false;
-                buscarDt.Visible = true;
-            }
-        }
-
-        private void buscarDt_ValueChanged(object sender, EventArgs e) {
-            ListarTransacoes();
-        }
-
-        private void mesesCb_TextChanged(object sender, EventArgs e) {
+        private void mesesCb_SelectedIndexChanged(object sender, EventArgs e) {
+            valorEntradas = 0;
+            valorSaidas = 0;
+            entradasLbl.Text = "R$ " + valorEntradas.ToString();
+            saidasLbl.Text = "R$ " + valorSaidas.ToString();
             ListarTransacoes();
         }
     }

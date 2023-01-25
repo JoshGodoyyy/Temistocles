@@ -112,12 +112,6 @@
     <Compile Include="Historico.Designer.cs">
       <DependentUpon>Historico.cs</DependentUpon>
     </Compile>
-    <Compile Include="Lancamentos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Lancamentos.Designer.cs">
-      <DependentUpon>Lancamentos.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,9 +152,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Historico.resx">
       <DependentUpon>Historico.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Lancamentos.resx">
-      <DependentUpon>Lancamentos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
