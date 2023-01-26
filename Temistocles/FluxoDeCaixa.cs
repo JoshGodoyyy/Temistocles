@@ -9,6 +9,7 @@ namespace Temistocles {
     public partial class FluxoDeCaixa : Form {
         double valorEntradas = 0;
         double valorSaidas = 0;
+        private int id;
 
         public FluxoDeCaixa() {
             InitializeComponent();
@@ -30,6 +31,8 @@ namespace Temistocles {
         public void ListarTransacoes() {
             List<BalancoEntity> entradas = new List<BalancoEntity>();
             List<BalancoEntity> saidas = new List<BalancoEntity>();
+            valorEntradas = 0;
+            valorSaidas = 0;
 
             try {
                 entradas = BalancoModel.ListarPorMes("Entrada", DataMinima(), DataMaxima());
@@ -78,6 +81,84 @@ namespace Temistocles {
             entradasLbl.Text = "R$ " + valorEntradas.ToString();
             saidasLbl.Text = "R$ " + valorSaidas.ToString();
             ListarTransacoes();
+        }
+
+        private void salvarBtn_Click(object sender, EventArgs e) {
+            switch(salvarBtn.Text) {
+                case "Salvar":
+                    if(descricaoTxt.Text == null || valorTxt.Text == null || entradaRdo.Checked == false && saidaRdo.Checked == false) {
+                        MessageBox.Show("Você deve preencher todos os campos", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    try {
+                        BalancoEntity item = new BalancoEntity() {
+                            Descricao = descricaoTxt.Text,
+                            Valor = double.Parse(valorTxt.Text),
+                            Data = DateTime.Parse(dataTransacaoDt.Text)
+                        };
+                        if(entradaRdo.Checked) item.Tipo = "Entrada";
+                        else item.Tipo = "Saída";
+
+                        BalancoModel.InserirItem(item);
+                    } catch(Exception ex) {
+                        MessageBox.Show(ex.Message, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    break;
+                default:
+                    try {
+                        BalancoEntity item = new BalancoEntity() {
+                            Id = id,
+                            Descricao = descricaoTxt.Text,
+                            Valor = double.Parse(valorTxt.Text),
+                            Data = DateTime.Parse(dataTransacaoDt.Text)
+                        };
+                        if(entradaRdo.Checked) item.Tipo = "Entrada";
+                        else item.Tipo = "Saída";
+
+                        BalancoModel.EditarItem(item);
+                    } catch(Exception ex) {
+                        MessageBox.Show(ex.Message, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    break;
+            }
+            LimparCampos();
+            ListarTransacoes();
+        }
+
+        private void LimparCampos() {
+            descricaoTxt.Clear();
+            valorTxt.Clear();
+            dataTransacaoDt.Value = DateTime.Now;
+            entradaRdo.Checked = false;
+            saidaRdo.Checked = false;
+            salvarBtn.Text = "Salvar";
+            limparLnk.Visible = false;
+        }
+
+        private void limparLnk_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            LimparCampos();
+        }
+
+        private void entradasDg_CellClick(object sender, DataGridViewCellEventArgs e) {
+            id = int.Parse(entradasDg.CurrentRow.Cells[0].Value.ToString());
+            descricaoTxt.Text = entradasDg.CurrentRow.Cells[1].Value.ToString();
+            valorTxt.Text = entradasDg.CurrentRow.Cells[2].Value.ToString();
+            if(entradasDg.CurrentRow.Cells[3].Value.ToString() == "Entrada") entradaRdo.Checked = true;
+            else saidaRdo.Checked = true;
+            dataTransacaoDt.Value = DateTime.Parse(entradasDg.CurrentRow.Cells[4].Value.ToString());
+            salvarBtn.Text = "Editar";
+            limparLnk.Visible = true;
+        }
+
+        private void saidasDg_CellClick(object sender, DataGridViewCellEventArgs e) {
+            id = int.Parse(saidasDg.CurrentRow.Cells[0].Value.ToString());
+            descricaoTxt.Text = saidasDg.CurrentRow.Cells[1].Value.ToString();
+            valorTxt.Text = saidasDg.CurrentRow.Cells[2].Value.ToString();
+            if(saidasDg.CurrentRow.Cells[3].Value.ToString() == "Entrada") entradaRdo.Checked = true;
+            else saidaRdo.Checked = true;
+            dataTransacaoDt.Value = DateTime.Parse(saidasDg.CurrentRow.Cells[4].Value.ToString());
+            salvarBtn.Text = "Editar";
+            limparLnk.Visible = true;
         }
     }
 }

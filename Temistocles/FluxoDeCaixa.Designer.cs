@@ -36,21 +36,22 @@
             this.label8 = new System.Windows.Forms.Label();
             this.totalLbl = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.salvarBtn = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.descricaoTxt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.saidaRdo = new System.Windows.Forms.RadioButton();
+            this.entradaRdo = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.valorTxt = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dataTransacaoDt = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
             this.mesesCb = new System.Windows.Forms.ComboBox();
+            this.limparLnk = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.entradasDg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saidasDg)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -73,11 +74,13 @@
             this.entradasDg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.entradasDg.Size = new System.Drawing.Size(350, 315);
             this.entradasDg.TabIndex = 0;
+            this.entradasDg.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.entradasDg_CellClick);
             // 
             // saidasDg
             // 
             this.saidasDg.AllowUserToAddRows = false;
             this.saidasDg.AllowUserToDeleteRows = false;
+            this.saidasDg.AllowUserToResizeRows = false;
             this.saidasDg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.saidasDg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.saidasDg.Location = new System.Drawing.Point(574, 25);
@@ -87,6 +90,7 @@
             this.saidasDg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.saidasDg.Size = new System.Drawing.Size(350, 315);
             this.saidasDg.TabIndex = 1;
+            this.saidasDg.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.saidasDg_CellClick);
             // 
             // label1
             // 
@@ -179,18 +183,19 @@
             this.label9.TabIndex = 14;
             this.label9.Text = "Buscar:";
             // 
-            // button2
+            // salvarBtn
             // 
-            this.button2.Location = new System.Drawing.Point(137, 309);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 31);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Salvar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.salvarBtn.Location = new System.Drawing.Point(137, 309);
+            this.salvarBtn.Name = "salvarBtn";
+            this.salvarBtn.Size = new System.Drawing.Size(75, 31);
+            this.salvarBtn.TabIndex = 6;
+            this.salvarBtn.Text = "Salvar";
+            this.salvarBtn.UseVisualStyleBackColor = true;
+            this.salvarBtn.Click += new System.EventHandler(this.salvarBtn_Click);
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.descricaoTxt);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Location = new System.Drawing.Point(12, 38);
             this.groupBox3.Name = "groupBox3";
@@ -198,13 +203,13 @@
             this.groupBox3.TabIndex = 21;
             this.groupBox3.TabStop = false;
             // 
-            // textBox1
+            // descricaoTxt
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 32);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(188, 53);
-            this.textBox1.TabIndex = 1;
+            this.descricaoTxt.Location = new System.Drawing.Point(6, 32);
+            this.descricaoTxt.Multiline = true;
+            this.descricaoTxt.Name = "descricaoTxt";
+            this.descricaoTxt.Size = new System.Drawing.Size(188, 53);
+            this.descricaoTxt.TabIndex = 1;
             // 
             // label3
             // 
@@ -218,8 +223,8 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.saidaRdo);
+            this.groupBox1.Controls.Add(this.entradaRdo);
             this.groupBox1.Location = new System.Drawing.Point(12, 196);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 42);
@@ -235,34 +240,34 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "Tipo:";
             // 
-            // radioButton2
+            // saidaRdo
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(111, 19);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(54, 17);
-            this.radioButton2.TabIndex = 5;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Saída";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.saidaRdo.AutoSize = true;
+            this.saidaRdo.Location = new System.Drawing.Point(111, 19);
+            this.saidaRdo.Name = "saidaRdo";
+            this.saidaRdo.Size = new System.Drawing.Size(54, 17);
+            this.saidaRdo.TabIndex = 5;
+            this.saidaRdo.TabStop = true;
+            this.saidaRdo.Text = "Saída";
+            this.saidaRdo.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // entradaRdo
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(43, 19);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(62, 17);
-            this.radioButton1.TabIndex = 4;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Entrada";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.entradaRdo.AutoSize = true;
+            this.entradaRdo.Location = new System.Drawing.Point(43, 19);
+            this.entradaRdo.Name = "entradaRdo";
+            this.entradaRdo.Size = new System.Drawing.Size(62, 17);
+            this.entradaRdo.TabIndex = 4;
+            this.entradaRdo.TabStop = true;
+            this.entradaRdo.Text = "Entrada";
+            this.entradaRdo.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.valorTxt);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.dateTimePicker1);
+            this.groupBox2.Controls.Add(this.dataTransacaoDt);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Location = new System.Drawing.Point(12, 128);
             this.groupBox2.Name = "groupBox2";
@@ -270,12 +275,12 @@
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             // 
-            // textBox2
+            // valorTxt
             // 
-            this.textBox2.Location = new System.Drawing.Point(73, 18);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 20);
-            this.textBox2.TabIndex = 2;
+            this.valorTxt.Location = new System.Drawing.Point(73, 18);
+            this.valorTxt.Name = "valorTxt";
+            this.valorTxt.Size = new System.Drawing.Size(121, 20);
+            this.valorTxt.TabIndex = 2;
             // 
             // label7
             // 
@@ -295,14 +300,14 @@
             this.label10.TabIndex = 2;
             this.label10.Text = "Valor:";
             // 
-            // dateTimePicker1
+            // dataTransacaoDt
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(43, 45);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
-            this.dateTimePicker1.TabIndex = 3;
-            this.dateTimePicker1.Value = new System.DateTime(2023, 1, 23, 0, 0, 0, 0);
+            this.dataTransacaoDt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dataTransacaoDt.Location = new System.Drawing.Point(43, 45);
+            this.dataTransacaoDt.Name = "dataTransacaoDt";
+            this.dataTransacaoDt.Size = new System.Drawing.Size(151, 20);
+            this.dataTransacaoDt.TabIndex = 3;
+            this.dataTransacaoDt.Value = new System.DateTime(2023, 1, 23, 0, 0, 0, 0);
             // 
             // label11
             // 
@@ -336,16 +341,29 @@
             this.mesesCb.TabIndex = 0;
             this.mesesCb.SelectedIndexChanged += new System.EventHandler(this.mesesCb_SelectedIndexChanged);
             // 
+            // limparLnk
+            // 
+            this.limparLnk.AutoSize = true;
+            this.limparLnk.Location = new System.Drawing.Point(93, 318);
+            this.limparLnk.Name = "limparLnk";
+            this.limparLnk.Size = new System.Drawing.Size(38, 13);
+            this.limparLnk.TabIndex = 22;
+            this.limparLnk.TabStop = true;
+            this.limparLnk.Text = "Limpar";
+            this.limparLnk.Visible = false;
+            this.limparLnk.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.limparLnk_LinkClicked);
+            // 
             // FluxoDeCaixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(936, 352);
+            this.Controls.Add(this.limparLnk);
             this.Controls.Add(this.mesesCb);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.salvarBtn);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.totalLbl);
             this.Controls.Add(this.label8);
@@ -391,20 +409,21 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label totalLbl;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button salvarBtn;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox descricaoTxt;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton saidaRdo;
+        private System.Windows.Forms.RadioButton entradaRdo;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox valorTxt;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dataTransacaoDt;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox mesesCb;
+        private System.Windows.Forms.LinkLabel limparLnk;
     }
 }

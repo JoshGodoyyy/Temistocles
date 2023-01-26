@@ -56,5 +56,34 @@ namespace Temistocles.DAO {
                 return extrato;
             }
         }
+
+        public BalancoEntity Inserir(BalancoEntity item) {
+            using(connection = new SQLiteConnection(path)) {
+                connection.Open();
+                command = connection.CreateCommand();
+                command.CommandText = "insert into balanco (descricao, valor, data, tipo) values (@descricao, @valor, @data, @tipo)";
+                command.Parameters.AddWithValue("descricao", item.Descricao);
+                command.Parameters.AddWithValue("valor", item.Valor);
+                command.Parameters.AddWithValue("data", item.Data);
+                command.Parameters.AddWithValue("tipo", item.Tipo);
+                command.ExecuteNonQuery();
+                return item;
+            }
+        }
+
+        public BalancoEntity EditarItem(BalancoEntity item) {
+            using(connection = new SQLiteConnection(path)) {
+                connection.Open();
+                command = connection.CreateCommand();
+                command.CommandText = "update balanco set descricao = @descricao, valor = @valor, data = @data, tipo = @tipo where id = @id";
+                command.Parameters.AddWithValue("descricao", item.Descricao);
+                command.Parameters.AddWithValue("valor", item.Valor);
+                command.Parameters.AddWithValue("data", item.Data);
+                command.Parameters.AddWithValue("tipo", item.Tipo);
+                command.Parameters.AddWithValue("id", item.Id);
+                command.ExecuteNonQuery();
+                return item;
+            }
+        }
     }
 }
