@@ -10,11 +10,12 @@ namespace Temistocles.DAO {
         private static SQLiteCommand command;
         private static SQLiteDataReader reader;
 
-        public List<BalancoEntity> ListarTransacoes() {
+        public List<BalancoEntity> Pesquisar(string pesquisa) {
             using(connection = new SQLiteConnection(path)) {
                 connection.Open();
                 command = connection.CreateCommand();
-                command.CommandText = "select * from balanco";
+                command.CommandText = "select * from balanco where descricao like @pesquisa";
+                command.Parameters.AddWithValue("pesquisa", pesquisa);
 
                 reader = command.ExecuteReader();
                 List<BalancoEntity> extrato = new List<BalancoEntity>();

@@ -43,9 +43,12 @@ namespace Temistocles {
 
             entradasDg.DataSource = entradas;
             entradasDg.Columns[0].Visible = false;
-            entradasDg.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            entradasDg.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            entradasDg.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            entradasDg.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             entradasDg.Columns[1].HeaderText = "Descrição";
             entradasDg.Columns[3].Visible = false;
+
 
             foreach(var item in entradas) {
                 valorEntradas += item.Valor;
@@ -64,6 +67,32 @@ namespace Temistocles {
             }
 
             CalcularResultado(valorEntradas, valorSaidas);
+        }
+
+        public void ListarTransacoes(string pesquisa){
+            List<BalancoEntity> entradas = new List<BalancoEntity>();
+            valorEntradas = 0;
+
+            try {
+                entradas = BalancoModel.Pesquisar(pesquisa);
+            } catch(Exception ex) {
+                MessageBox.Show(ex.Message, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            entradasDg.DataSource = entradas;
+            entradasDg.Columns[0].Visible = false;
+            entradasDg.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            entradasDg.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            entradasDg.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            entradasDg.Columns[1].HeaderText = "Descrição";
+            entradasDg.Columns[3].Visible = false;
+
+
+            foreach(var item in entradas) {
+                valorEntradas += item.Valor;
+                entradasLbl.Text = "R$ " + valorEntradas.ToString();
+            }
+
         }
 
         private void CalcularResultado(double entrada, double saida) {
@@ -159,6 +188,14 @@ namespace Temistocles {
             dataTransacaoDt.Value = DateTime.Parse(saidasDg.CurrentRow.Cells[4].Value.ToString());
             salvarBtn.Text = "Editar";
             limparLnk.Visible = true;
+        }
+
+        private void buscarTxt_TextChanged(object sender, EventArgs e) {
+            if(buscarTxt.Text == "") {
+                ListarTransacoes();
+            } else {
+                ListarTransacoes("%" + buscarTxt.Text + "%");
+            }
         }
     }
 }

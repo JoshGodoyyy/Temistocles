@@ -1,0 +1,144 @@
+﻿namespace Temistocles {
+    partial class Configuracoes {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing) {
+            if(disposing && (components != null)) {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Configuracoes));
+            this.label1 = new System.Windows.Forms.Label();
+            this.usuarioTxt = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.senhaTxt = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.repetirSenhaTxt = new System.Windows.Forms.TextBox();
+            this.mostrarSenhaChk = new System.Windows.Forms.CheckBox();
+            this.salvarBtn = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Usuário:";
+            // 
+            // usuarioTxt
+            // 
+            this.usuarioTxt.Location = new System.Drawing.Point(12, 25);
+            this.usuarioTxt.Name = "usuarioTxt";
+            this.usuarioTxt.Size = new System.Drawing.Size(261, 20);
+            this.usuarioTxt.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Senha:";
+            // 
+            // senhaTxt
+            // 
+            this.senhaTxt.Location = new System.Drawing.Point(12, 64);
+            this.senhaTxt.Name = "senhaTxt";
+            this.senhaTxt.Size = new System.Drawing.Size(180, 20);
+            this.senhaTxt.TabIndex = 3;
+            this.senhaTxt.UseSystemPasswordChar = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 87);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(76, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Repetir senha:";
+            // 
+            // repetirSenhaTxt
+            // 
+            this.repetirSenhaTxt.Location = new System.Drawing.Point(12, 103);
+            this.repetirSenhaTxt.Name = "repetirSenhaTxt";
+            this.repetirSenhaTxt.Size = new System.Drawing.Size(180, 20);
+            this.repetirSenhaTxt.TabIndex = 5;
+            this.repetirSenhaTxt.UseSystemPasswordChar = true;
+            // 
+            // mostrarSenhaChk
+            // 
+            this.mostrarSenhaChk.AutoSize = true;
+            this.mostrarSenhaChk.Location = new System.Drawing.Point(198, 64);
+            this.mostrarSenhaChk.Name = "mostrarSenhaChk";
+            this.mostrarSenhaChk.Size = new System.Drawing.Size(58, 17);
+            this.mostrarSenhaChk.TabIndex = 6;
+            this.mostrarSenhaChk.Text = "Mostar";
+            this.mostrarSenhaChk.UseVisualStyleBackColor = true;
+            this.mostrarSenhaChk.CheckedChanged += new System.EventHandler(this.mostrarSenhaChk_CheckedChanged);
+            // 
+            // salvarBtn
+            // 
+            this.salvarBtn.Location = new System.Drawing.Point(198, 101);
+            this.salvarBtn.Name = "salvarBtn";
+            this.salvarBtn.Size = new System.Drawing.Size(75, 23);
+            this.salvarBtn.TabIndex = 7;
+            this.salvarBtn.Text = "Salvar";
+            this.salvarBtn.UseVisualStyleBackColor = true;
+            this.salvarBtn.Click += new System.EventHandler(this.salvarBtn_Click);
+            // 
+            // Configuracoes
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(285, 136);
+            this.Controls.Add(this.salvarBtn);
+            this.Controls.Add(this.mostrarSenhaChk);
+            this.Controls.Add(this.repetirSenhaTxt);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.senhaTxt);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.usuarioTxt);
+            this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "Configuracoes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Configurações";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox usuarioTxt;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox senhaTxt;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox repetirSenhaTxt;
+        private System.Windows.Forms.CheckBox mostrarSenhaChk;
+        private System.Windows.Forms.Button salvarBtn;
+    }
+}

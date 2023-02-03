@@ -6,6 +6,9 @@
         public string Endereco { get; set; }
         public string Contato { get; set; }
         public string Sexo { get; set; }
+        public System.DateTime DataMatricula { get; set; }
+        public string Servico { get; set; }
+        public double Valor { get; set; }
         public bool EstaAtivo { get; set; }
     }
 }

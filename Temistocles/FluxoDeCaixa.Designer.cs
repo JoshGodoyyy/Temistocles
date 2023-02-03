@@ -52,6 +52,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.mesesCb = new System.Windows.Forms.ComboBox();
             this.limparLnk = new System.Windows.Forms.LinkLabel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.buscarTxt = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.entradasDg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saidasDg)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -113,7 +115,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 241);
+            this.label4.Location = new System.Drawing.Point(9, 247);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 13);
             this.label4.TabIndex = 6;
@@ -123,7 +125,7 @@
             // 
             this.entradasLbl.AutoSize = true;
             this.entradasLbl.ForeColor = System.Drawing.Color.Green;
-            this.entradasLbl.Location = new System.Drawing.Point(9, 254);
+            this.entradasLbl.Location = new System.Drawing.Point(9, 260);
             this.entradasLbl.Name = "entradasLbl";
             this.entradasLbl.Size = new System.Drawing.Size(21, 13);
             this.entradasLbl.TabIndex = 7;
@@ -132,7 +134,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Location = new System.Drawing.Point(9, 270);
+            this.panel2.Location = new System.Drawing.Point(12, 276);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(94, 1);
             this.panel2.TabIndex = 8;
@@ -140,7 +142,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(126, 241);
+            this.label6.Location = new System.Drawing.Point(126, 247);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(86, 13);
             this.label6.TabIndex = 9;
@@ -150,7 +152,7 @@
             // 
             this.saidasLbl.AutoSize = true;
             this.saidasLbl.ForeColor = System.Drawing.Color.Red;
-            this.saidasLbl.Location = new System.Drawing.Point(126, 254);
+            this.saidasLbl.Location = new System.Drawing.Point(126, 260);
             this.saidasLbl.Name = "saidasLbl";
             this.saidasLbl.Size = new System.Drawing.Size(21, 13);
             this.saidasLbl.TabIndex = 10;
@@ -159,7 +161,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(9, 274);
+            this.label8.Location = new System.Drawing.Point(9, 280);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(64, 13);
             this.label8.TabIndex = 12;
@@ -168,7 +170,7 @@
             // totalLbl
             // 
             this.totalLbl.AutoSize = true;
-            this.totalLbl.Location = new System.Drawing.Point(9, 287);
+            this.totalLbl.Location = new System.Drawing.Point(9, 293);
             this.totalLbl.Name = "totalLbl";
             this.totalLbl.Size = new System.Drawing.Size(21, 13);
             this.totalLbl.TabIndex = 13;
@@ -179,9 +181,9 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(12, 15);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(43, 13);
+            this.label9.Size = new System.Drawing.Size(30, 13);
             this.label9.TabIndex = 14;
-            this.label9.Text = "Buscar:";
+            this.label9.Text = "Mês:";
             // 
             // salvarBtn
             // 
@@ -197,9 +199,9 @@
             // 
             this.groupBox3.Controls.Add(this.descricaoTxt);
             this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Location = new System.Drawing.Point(12, 38);
+            this.groupBox3.Location = new System.Drawing.Point(12, 62);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 100);
+            this.groupBox3.Size = new System.Drawing.Size(200, 82);
             this.groupBox3.TabIndex = 21;
             this.groupBox3.TabStop = false;
             // 
@@ -208,7 +210,7 @@
             this.descricaoTxt.Location = new System.Drawing.Point(6, 32);
             this.descricaoTxt.Multiline = true;
             this.descricaoTxt.Name = "descricaoTxt";
-            this.descricaoTxt.Size = new System.Drawing.Size(188, 53);
+            this.descricaoTxt.Size = new System.Drawing.Size(188, 41);
             this.descricaoTxt.TabIndex = 1;
             // 
             // label3
@@ -225,7 +227,7 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.saidaRdo);
             this.groupBox1.Controls.Add(this.entradaRdo);
-            this.groupBox1.Location = new System.Drawing.Point(12, 196);
+            this.groupBox1.Location = new System.Drawing.Point(12, 202);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 42);
             this.groupBox1.TabIndex = 19;
@@ -269,7 +271,7 @@
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.dataTransacaoDt);
             this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Location = new System.Drawing.Point(12, 128);
+            this.groupBox2.Location = new System.Drawing.Point(12, 134);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(200, 79);
             this.groupBox2.TabIndex = 20;
@@ -353,11 +355,30 @@
             this.limparLnk.Visible = false;
             this.limparLnk.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.limparLnk_LinkClicked);
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(12, 42);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(43, 13);
+            this.label12.TabIndex = 23;
+            this.label12.Text = "Buscar:";
+            // 
+            // buscarTxt
+            // 
+            this.buscarTxt.Location = new System.Drawing.Point(61, 39);
+            this.buscarTxt.Name = "buscarTxt";
+            this.buscarTxt.Size = new System.Drawing.Size(151, 20);
+            this.buscarTxt.TabIndex = 24;
+            this.buscarTxt.TextChanged += new System.EventHandler(this.buscarTxt_TextChanged);
+            // 
             // FluxoDeCaixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(936, 352);
+            this.Controls.Add(this.buscarTxt);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.limparLnk);
             this.Controls.Add(this.mesesCb);
             this.Controls.Add(this.groupBox3);
@@ -425,5 +446,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox mesesCb;
         private System.Windows.Forms.LinkLabel limparLnk;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox buscarTxt;
     }
 }

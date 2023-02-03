@@ -24,7 +24,6 @@
         /// </summary>
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.versaoTxt = new System.Windows.Forms.ToolStripStatusLabel();
             this.usuarioTxt = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -41,48 +40,39 @@
             this.sairTab = new System.Windows.Forms.TabPage();
             this.encerrarBtn = new System.Windows.Forms.Button();
             this.logoutBtn = new System.Windows.Forms.Button();
-            this.statusStrip1.SuspendLayout();
+            this.configuracoesBtn = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.versaoLbl = new System.Windows.Forms.ToolStripStatusLabel();
+            this.usuarioLbl = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.empresaLbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.cadastrosTab.SuspendLayout();
             this.financeiroTab.SuspendLayout();
             this.sairTab.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.versaoTxt,
-            this.usuarioTxt,
-            this.toolStripStatusLabel1,
-            this.companyLbl});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
-            this.statusStrip1.SizingGrip = false;
-            this.statusStrip1.TabIndex = 0;
-            this.statusStrip1.Text = "statusStrip1";
             // 
             // versaoTxt
             // 
             this.versaoTxt.Name = "versaoTxt";
-            this.versaoTxt.Size = new System.Drawing.Size(0, 17);
+            this.versaoTxt.Size = new System.Drawing.Size(23, 23);
             // 
             // usuarioTxt
             // 
             this.usuarioTxt.Name = "usuarioTxt";
-            this.usuarioTxt.Size = new System.Drawing.Size(0, 17);
+            this.usuarioTxt.Size = new System.Drawing.Size(23, 23);
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(785, 17);
-            this.toolStripStatusLabel1.Spring = true;
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(23, 23);
             // 
             // companyLbl
             // 
             this.companyLbl.Name = "companyLbl";
-            this.companyLbl.Size = new System.Drawing.Size(0, 17);
+            this.companyLbl.Size = new System.Drawing.Size(23, 23);
             // 
             // panel1
             // 
@@ -230,36 +220,91 @@
             this.logoutBtn.UseVisualStyleBackColor = true;
             this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
             // 
+            // configuracoesBtn
+            // 
+            this.configuracoesBtn.BackColor = System.Drawing.Color.Transparent;
+            this.configuracoesBtn.FlatAppearance.BorderSize = 0;
+            this.configuracoesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.configuracoesBtn.Image = global::Temistocles.Properties.Resources.Painel_de_Controle;
+            this.configuracoesBtn.Location = new System.Drawing.Point(12, 66);
+            this.configuracoesBtn.Name = "configuracoesBtn";
+            this.configuracoesBtn.Size = new System.Drawing.Size(85, 85);
+            this.configuracoesBtn.TabIndex = 2;
+            this.configuracoesBtn.Text = "Configurações";
+            this.configuracoesBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.configuracoesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.configuracoesBtn.UseVisualStyleBackColor = false;
+            this.configuracoesBtn.Visible = false;
+            this.configuracoesBtn.Click += new System.EventHandler(this.configuracoesBtn_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.versaoLbl,
+            this.usuarioLbl,
+            this.toolStripStatusLabel4,
+            this.empresaLbl});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
+            this.statusStrip1.SizingGrip = false;
+            this.statusStrip1.TabIndex = 4;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // versaoLbl
+            // 
+            this.versaoLbl.Name = "versaoLbl";
+            this.versaoLbl.Size = new System.Drawing.Size(0, 17);
+            // 
+            // usuarioLbl
+            // 
+            this.usuarioLbl.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
+            this.usuarioLbl.Name = "usuarioLbl";
+            this.usuarioLbl.Size = new System.Drawing.Size(4, 17);
+            // 
+            // toolStripStatusLabel4
+            // 
+            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(750, 17);
+            this.toolStripStatusLabel4.Spring = true;
+            // 
+            // empresaLbl
+            // 
+            this.empresaLbl.Name = "empresaLbl";
+            this.empresaLbl.Size = new System.Drawing.Size(0, 17);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Temistocles.Properties.Resources.Logo;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.configuracoesBtn);
+            this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Temistoles";
+            this.Text = "Temistocles";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.cadastrosTab.ResumeLayout(false);
             this.financeiroTab.ResumeLayout(false);
             this.sairTab.ResumeLayout(false);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel versaoTxt;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button editarClienteBtn;
@@ -276,6 +321,12 @@
         public System.Windows.Forms.Button logoutBtn;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel companyLbl;
+        public System.Windows.Forms.Button configuracoesBtn;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel versaoLbl;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
+        private System.Windows.Forms.ToolStripStatusLabel empresaLbl;
+        public System.Windows.Forms.ToolStripStatusLabel usuarioLbl;
     }
 }
 

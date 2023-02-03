@@ -7,5 +7,9 @@ namespace Temistocles.Model {
         public static List<LoginEntity> Login(LoginEntity loginEntity) {
             return Logar.Login(loginEntity);
         }
+
+        public static LoginEntity AlterarDados(LoginEntity loginEntity) {
+            return Logar.AlterarDados(loginEntity);
+        }
     }
 }

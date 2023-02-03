@@ -1,7 +1,6 @@
 ﻿using Temistocles.Entity;
 using Temistocles.DAO;
 using System.Collections.Generic;
-using System;
 
 namespace Temistocles.Model {
     public class ClienteModel {

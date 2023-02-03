@@ -24,10 +24,11 @@ namespace Temistocles {
             if(usuario.Count > 0) {
                 Global.estaLogado = true;
                 Global.Usuario = usuarioTxt.Text;
-                main.usuarioTxt.Text = Global.Usuario;
+                main.usuarioLbl.Text = Global.Usuario;
                 main.cadastrosTab.Enabled = true;
                 main.financeiroTab.Enabled = true;
                 main.logoutBtn.Enabled = true;
+                main.configuracoesBtn.Visible = true;
                 Close();
             } else {
                 MessageBox.Show("Usuário e/ou senha inválido(s).", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);

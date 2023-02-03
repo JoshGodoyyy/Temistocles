@@ -5,8 +5,8 @@ using Temistocles.Entity;
 
 namespace Temistocles.Model {
     public class BalancoModel {
-        public static List<BalancoEntity> ListarTransacoes() {
-            return new BalancoDAO().ListarTransacoes();
+        public static List<BalancoEntity> Pesquisar(string pesquisa) {
+            return new BalancoDAO().Pesquisar(pesquisa);
         }
 
         public static List<BalancoEntity> ListarPorMes(string tipo, DateTime diaMinimo, DateTime diaMaximo) {

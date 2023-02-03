@@ -6,11 +6,12 @@ namespace Temistocles {
 
         public Main() {
             InitializeComponent();
-            versaoTxt.Text = Global.Versao;
-            companyLbl.Text = Global.CompanyName;
+            versaoLbl.Text = Global.Versao;
+            empresaLbl.Text = Global.CompanyName;
             Conexao();
             Width = Screen.PrimaryScreen.Bounds.Width;
             Height = Screen.PrimaryScreen.Bounds.Height;
+
         }
 
         private void Conexao() {
@@ -22,14 +23,15 @@ namespace Temistocles {
                 financeiroTab.Enabled = false;
                 logoutBtn.Enabled = false;
                 Global.Usuario = "Desconectado";
-                usuarioTxt.Text = Global.Usuario;
+                usuarioLbl.Text = Global.Usuario;
+                configuracoesBtn.Visible = false;
             }
         }
 
         private void novoClienteBtn_Click(object sender, EventArgs e) {
             Form formOpenned = Application.OpenForms["CadastroCliente"];
             if(formOpenned == null) {
-                formOpenned = new CadastroCliente(this);
+                formOpenned = new CadastroCliente();
                 formOpenned.MdiParent = this;
                 formOpenned.Show();
             }
@@ -56,7 +58,7 @@ namespace Temistocles {
         private void pagamentosBtn_Click(object sender, EventArgs e) {
             Form formOpenned = Application.OpenForms["Pagamentos"];
             if(formOpenned == null) {
-                formOpenned = new Pagamentos(this);
+                formOpenned = new Pagamentos();
                 formOpenned.MdiParent = this;
                 formOpenned.Show();
             }
@@ -80,6 +82,15 @@ namespace Temistocles {
             DialogResult dialog = MessageBox.Show("Deseja mesmo encerrar a aplicação?", ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if(dialog == DialogResult.Yes) {
                 Application.Exit();
+            }
+        }
+
+        private void configuracoesBtn_Click(object sender, EventArgs e) {
+            Form formOpenned = Application.OpenForms["Configuracoes"];
+            if(formOpenned == null) {
+                formOpenned = new Configuracoes();
+                formOpenned.MdiParent = this;
+                formOpenned.Show();
             }
         }
     }

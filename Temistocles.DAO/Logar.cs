@@ -5,7 +5,7 @@ using Temistocles.Entity;
 
 namespace Temistocles.DAO {
     public class Logar {
-        private static string path = "Data Source=" + Global.pathDatabase;
+        private static readonly string path = "Data Source=" + Global.pathDatabase;
         private static SQLiteConnection connection;
         private static SQLiteCommand command;
         private static SQLiteDataReader reader;
@@ -32,6 +32,18 @@ namespace Temistocles.DAO {
                 }
 
                 return usuarios;
+            }
+        }
+
+        public static LoginEntity AlterarDados(LoginEntity login) {
+            using(connection = new SQLiteConnection(path)) {
+                connection.Open();
+                command = connection.CreateCommand();
+                command.CommandText = "update usuarios set usuario = @usuario, senha = @senha";
+                command.Parameters.AddWithValue("usuario", login.Usuario);
+                command.Parameters.AddWithValue("senha", login.Senha);
+                command.ExecuteNonQuery();
+                return login;
             }
         }
     }

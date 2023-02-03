@@ -14,12 +14,15 @@ namespace Temistocles.DAO {
             using(connection = new SQLiteConnection(path)) {
                 connection.Open();
                 command = connection.CreateCommand();
-                command.CommandText = "insert into clientes (nome, nascimento, endereco, contato, sexo, estaativo) values (@nome, @nascimento, @endereco, @contato, @sexo, @estaativo)";
+                command.CommandText = "insert into clientes (nome, nascimento, endereco, contato, sexo, datamatricula, servico, valor, estaativo) values (@nome, @nascimento, @endereco, @contato, @sexo, @datamatricula, @servico, @valor, @estaativo)";
                 command.Parameters.AddWithValue("nome", cliente.Nome);
                 command.Parameters.AddWithValue("nascimento", cliente.Nascimento);
                 command.Parameters.AddWithValue("endereco", cliente.Endereco);
                 command.Parameters.AddWithValue("contato", cliente.Contato);
                 command.Parameters.AddWithValue("sexo", cliente.Sexo);
+                command.Parameters.AddWithValue("datamatricula", cliente.DataMatricula);
+                command.Parameters.AddWithValue("servico", cliente.Servico);
+                command.Parameters.AddWithValue("valor", cliente.Valor);
                 command.Parameters.AddWithValue("estaativo", cliente.EstaAtivo);
                 command.ExecuteNonQuery();
 
@@ -43,6 +46,11 @@ namespace Temistocles.DAO {
                         Nascimento = Convert.ToDateTime(reader["nascimento"]),
                         Endereco = Convert.ToString(reader["endereco"]),
                         Contato = Convert.ToString(reader["contato"]),
+                        Sexo = Convert.ToString(reader["sexo"]),
+                        DataMatricula = Convert.ToDateTime(reader["datamatricula"]),
+                        Servico= Convert.ToString(reader["servico"]),
+                        Valor = Convert.ToDouble(reader["valor"]),
+                        EstaAtivo = Convert.ToBoolean(reader["estaativo"])
                     };
                     clientes.Add(cliente);
                 }
@@ -91,6 +99,7 @@ namespace Temistocles.DAO {
                         Sexo = Convert.ToString(reader["sexo"]),
                         Endereco = Convert.ToString(reader["endereco"]),
                         Contato = Convert.ToString(reader["contato"]),
+                        DataMatricula = Convert.ToDateTime(reader["datamatricula"]),
                         EstaAtivo = Convert.ToBoolean(reader["estaativo"])
                     };
                     clientes.Add(cliente);
@@ -101,7 +110,7 @@ namespace Temistocles.DAO {
         }
 
         public ClienteEntity EditarCliente(ClienteEntity cliente) {
-            using(connection=new SQLiteConnection(path)) {
+            using(connection = new SQLiteConnection(path)) {
                 connection.Open();
                 command = connection.CreateCommand();
                 command.CommandText = "update clientes set nome = @nome, nascimento = @nascimento, sexo = @sexo, endereco = @endereco, contato = @contato, estaativo = @estaativo where id = @id";
@@ -111,6 +120,8 @@ namespace Temistocles.DAO {
                 command.Parameters.AddWithValue("endereco", cliente.Endereco);
                 command.Parameters.AddWithValue("contato", cliente.Contato);
                 command.Parameters.AddWithValue("estaativo", cliente.EstaAtivo);
+                command.Parameters.AddWithValue("servico", cliente.Servico);
+                command.Parameters.AddWithValue("valor", cliente.Valor);
                 command.Parameters.AddWithValue("id", cliente.Id);
                 command.ExecuteNonQuery();
                 return cliente;
@@ -154,7 +165,7 @@ namespace Temistocles.DAO {
                 reader = command.ExecuteReader();
                 List<AvaliacaoEntity> avaliacoes = new List<AvaliacaoEntity>();
 
-                while (reader.Read()) {
+                while(reader.Read()) {
                     AvaliacaoEntity avaliacao = new AvaliacaoEntity() {
                         Id = Convert.ToInt32(reader["id"]),
                         IdCliente = Convert.ToInt32(reader["idcliente"]),

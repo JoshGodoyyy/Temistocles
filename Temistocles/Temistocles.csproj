@@ -75,17 +75,17 @@
     <Compile Include="Avaliacoes.Designer.cs">
       <DependentUpon>Avaliacoes.cs</DependentUpon>
     </Compile>
-    <Compile Include="CadastrarAvaliacao.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CadastrarAvaliacao.Designer.cs">
-      <DependentUpon>CadastrarAvaliacao.cs</DependentUpon>
-    </Compile>
     <Compile Include="CadastroCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CadastroCliente.Designer.cs">
       <DependentUpon>CadastroCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracoes.Designer.cs">
+      <DependentUpon>Configuracoes.cs</DependentUpon>
     </Compile>
     <Compile Include="EditarCliente.cs">
       <SubType>Form</SubType>
@@ -124,6 +124,12 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mensagem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mensagem.Designer.cs">
+      <DependentUpon>Mensagem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pagamentos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,11 +141,11 @@
     <EmbeddedResource Include="Avaliacoes.resx">
       <DependentUpon>Avaliacoes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CadastrarAvaliacao.resx">
-      <DependentUpon>CadastrarAvaliacao.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CadastroCliente.resx">
       <DependentUpon>CadastroCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracoes.resx">
+      <DependentUpon>Configuracoes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditarCliente.resx">
       <DependentUpon>EditarCliente.cs</DependentUpon>
@@ -159,23 +165,27 @@
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mensagem.resx">
+      <DependentUpon>Mensagem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pagamentos.resx">
       <DependentUpon>Pagamentos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -196,20 +206,23 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="assets\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="assets\icon.png" />
+    <None Include="assets\Painel_de_Controle.png" />
+    <None Include="assets\Logo.png" />
     <Content Include="icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
   </Target>
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
 </Project>
