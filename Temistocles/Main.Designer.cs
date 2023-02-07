@@ -23,6 +23,7 @@
         /// o conteúdo deste método com o editor de código.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.versaoTxt = new System.Windows.Forms.ToolStripStatusLabel();
             this.usuarioTxt = new System.Windows.Forms.ToolStripStatusLabel();
@@ -46,6 +47,9 @@
             this.usuarioLbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.empresaLbl = new System.Windows.Forms.ToolStripStatusLabel();
+            this.progressSave = new System.Windows.Forms.ToolStripProgressBar();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.logLbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.cadastrosTab.SuspendLayout();
@@ -243,7 +247,9 @@
             this.versaoLbl,
             this.usuarioLbl,
             this.toolStripStatusLabel4,
-            this.empresaLbl});
+            this.empresaLbl,
+            this.logLbl,
+            this.progressSave});
             this.statusStrip1.Location = new System.Drawing.Point(0, 428);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(800, 22);
@@ -265,13 +271,31 @@
             // toolStripStatusLabel4
             // 
             this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
-            this.toolStripStatusLabel4.Size = new System.Drawing.Size(750, 17);
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(454, 17);
             this.toolStripStatusLabel4.Spring = true;
             // 
             // empresaLbl
             // 
             this.empresaLbl.Name = "empresaLbl";
             this.empresaLbl.Size = new System.Drawing.Size(0, 17);
+            // 
+            // progressSave
+            // 
+            this.progressSave.Maximum = 10;
+            this.progressSave.Name = "progressSave";
+            this.progressSave.Size = new System.Drawing.Size(100, 16);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 10;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // logLbl
+            // 
+            this.logLbl.Name = "logLbl";
+            this.logLbl.Size = new System.Drawing.Size(194, 17);
+            this.logLbl.Text = "Criando backup de banco de dados";
+            this.logLbl.Visible = false;
             // 
             // Main
             // 
@@ -327,6 +351,9 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
         private System.Windows.Forms.ToolStripStatusLabel empresaLbl;
         public System.Windows.Forms.ToolStripStatusLabel usuarioLbl;
+        private System.Windows.Forms.ToolStripProgressBar progressSave;
+        private System.Windows.Forms.ToolStripStatusLabel logLbl;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

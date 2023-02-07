@@ -32,6 +32,14 @@
             this.repetirSenhaTxt = new System.Windows.Forms.TextBox();
             this.mostrarSenhaChk = new System.Windows.Forms.CheckBox();
             this.salvarBtn = new System.Windows.Forms.Button();
+            this.backupBtn = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dataLbl = new System.Windows.Forms.Label();
+            this.selecionarPastaDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.importarBtn = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.caminhoTxt = new System.Windows.Forms.TextBox();
+            this.alterarLbl = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label1
@@ -105,11 +113,83 @@
             this.salvarBtn.UseVisualStyleBackColor = true;
             this.salvarBtn.Click += new System.EventHandler(this.salvarBtn_Click);
             // 
+            // backupBtn
+            // 
+            this.backupBtn.Location = new System.Drawing.Point(12, 182);
+            this.backupBtn.Name = "backupBtn";
+            this.backupBtn.Size = new System.Drawing.Size(75, 23);
+            this.backupBtn.TabIndex = 10;
+            this.backupBtn.Text = "Exportar";
+            this.backupBtn.UseVisualStyleBackColor = true;
+            this.backupBtn.Click += new System.EventHandler(this.backupBtn_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 165);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(78, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Último backup:";
+            // 
+            // dataLbl
+            // 
+            this.dataLbl.AutoSize = true;
+            this.dataLbl.Location = new System.Drawing.Point(96, 165);
+            this.dataLbl.Name = "dataLbl";
+            this.dataLbl.Size = new System.Drawing.Size(0, 13);
+            this.dataLbl.TabIndex = 12;
+            // 
+            // importarBtn
+            // 
+            this.importarBtn.Location = new System.Drawing.Point(93, 182);
+            this.importarBtn.Name = "importarBtn";
+            this.importarBtn.Size = new System.Drawing.Size(75, 23);
+            this.importarBtn.TabIndex = 14;
+            this.importarBtn.Text = "Importar";
+            this.importarBtn.UseVisualStyleBackColor = true;
+            this.importarBtn.Click += new System.EventHandler(this.importarBtn_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 126);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 13);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Caminho padrão:";
+            // 
+            // caminhoTxt
+            // 
+            this.caminhoTxt.Location = new System.Drawing.Point(12, 142);
+            this.caminhoTxt.Name = "caminhoTxt";
+            this.caminhoTxt.ReadOnly = true;
+            this.caminhoTxt.Size = new System.Drawing.Size(218, 20);
+            this.caminhoTxt.TabIndex = 16;
+            // 
+            // alterarLbl
+            // 
+            this.alterarLbl.AutoSize = true;
+            this.alterarLbl.Location = new System.Drawing.Point(236, 145);
+            this.alterarLbl.Name = "alterarLbl";
+            this.alterarLbl.Size = new System.Drawing.Size(37, 13);
+            this.alterarLbl.TabIndex = 17;
+            this.alterarLbl.TabStop = true;
+            this.alterarLbl.Text = "Alterar";
+            this.alterarLbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.alterarLbl_LinkClicked);
+            // 
             // Configuracoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(285, 136);
+            this.ClientSize = new System.Drawing.Size(285, 217);
+            this.Controls.Add(this.alterarLbl);
+            this.Controls.Add(this.caminhoTxt);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.importarBtn);
+            this.Controls.Add(this.dataLbl);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.backupBtn);
             this.Controls.Add(this.salvarBtn);
             this.Controls.Add(this.mostrarSenhaChk);
             this.Controls.Add(this.repetirSenhaTxt);
@@ -140,5 +220,13 @@
         private System.Windows.Forms.TextBox repetirSenhaTxt;
         private System.Windows.Forms.CheckBox mostrarSenhaChk;
         private System.Windows.Forms.Button salvarBtn;
+        private System.Windows.Forms.Button backupBtn;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label dataLbl;
+        private System.Windows.Forms.FolderBrowserDialog selecionarPastaDialog;
+        private System.Windows.Forms.Button importarBtn;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox caminhoTxt;
+        private System.Windows.Forms.LinkLabel alterarLbl;
     }
 }

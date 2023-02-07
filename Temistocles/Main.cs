@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
+using Temistocles.Properties;
 
 namespace Temistocles {
     public partial class Main : Form {
@@ -81,7 +83,8 @@ namespace Temistocles {
         private void encerrarBtn_Click(object sender, EventArgs e) {
             DialogResult dialog = MessageBox.Show("Deseja mesmo encerrar a aplicação?", ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if(dialog == DialogResult.Yes) {
-                Application.Exit();
+                timer1.Start();
+                logLbl.Visible = true;
             }
         }
 
@@ -91,6 +94,28 @@ namespace Temistocles {
                 formOpenned = new Configuracoes();
                 formOpenned.MdiParent = this;
                 formOpenned.Show();
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e) {
+            progressSave.Value++;
+            if(progressSave.Value == progressSave.Maximum) {
+                timer1.Stop();
+                logLbl.Visible = false;
+                string path = AppDomain.CurrentDomain.BaseDirectory.ToString();
+                string sourcePath = path + @"\db\";
+                string fileName = "temistocles.db";
+                string targetPath = Settings.Default.PathDatabase;
+
+                string sourceFile = Path.Combine(sourcePath, fileName);
+                string destFile = Path.Combine(targetPath, fileName);
+
+                Directory.CreateDirectory(targetPath);
+
+                File.Copy(sourceFile, destFile, true);
+                Settings.Default.DataBackup = DateTime.Now.ToString("dd/MM/yyyy");
+                Settings.Default.Save();
+                Close();
             }
         }
     }
