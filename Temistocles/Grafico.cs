@@ -17,7 +17,7 @@ namespace Temistocles {
         private void GerarGrafico() {
             try {
                 List<AvaliacaoEntity> avaliacoes = new List<AvaliacaoEntity>();
-                avaliacoes = ClienteModel.Historico(idPaciente);
+                avaliacoes = AvaliacaoModel.Historico(idPaciente);
 
                 if(pesoChk.Checked) {
                     pesoChart.Series.Add("peso");

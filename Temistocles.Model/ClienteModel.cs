@@ -23,17 +23,5 @@ namespace Temistocles.Model {
         public static ClienteEntity EditarCliente(ClienteEntity cliente) {
             return new Banco().EditarCliente(cliente);
         }
-
-        public static AvaliacaoEntity CriarAvaliacao(AvaliacaoEntity avaliacao) {
-            return new Banco().CriarAvaliacao(avaliacao);
-        }
-
-        public static List<AvaliacaoEntity> SelecionarAvaliacao(int idCliente) {
-            return new Banco().SelecionarAvaliacao(idCliente);
-        }
-
-        public static List<AvaliacaoEntity> Historico(int idCliente) {
-            return new Banco().Historico(idCliente);
-        }
     }
 }

@@ -171,7 +171,7 @@ namespace Temistocles {
                     DataAvaliacao = DateTime.Parse(dataAvaliacaoDt.Text.ToString()),
                 };
 
-                ClienteModel.CriarAvaliacao(avaliacao);
+                AvaliacaoModel.CriarAvaliacao(avaliacao);
 
             } catch(Exception ex) {
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -11,6 +11,11 @@ namespace Temistocles {
         readonly Main main;
         private string resultado;
 
+        public Avaliacoes() {
+            InitializeComponent();
+            ListarClientes();
+        }
+
         public Avaliacoes(Main main) {
             InitializeComponent();
             ListarClientes();
@@ -31,6 +36,8 @@ namespace Temistocles {
         }
 
         private void LimparCampos() {
+            estaturaTxt.Clear();
+            pesoNmr.Value = 0;
             imcTxt.Clear();
             classificacaoLbl.Text = "";
             toraxTxt.Clear();
@@ -50,14 +57,16 @@ namespace Temistocles {
         private void CalcularIMC() {
             double peso, altura, resultado;
             peso = double.Parse(pesoNmr.Text);
-            if(estaturaTxt.Text != "") altura = double.Parse(estaturaTxt.Text);
-            else altura = 0;
-            resultado = peso / Math.Pow(altura, 2);
-            imcTxt.Text = resultado.ToString("N2");
-            Resultado(resultado);
+            if(peso != 0) {
+                if(estaturaTxt.Text != "") altura = double.Parse(estaturaTxt.Text);
+                else altura = 0;
+                resultado = peso / Math.Pow(altura, 2);
+                imcTxt.Text = resultado.ToString("N2");
+                Resultado(resultado);
+            } else classificacaoLbl.Text = "Não definido";
         }
 
-        public void Resultado(double valor) {
+        public void Resultado(double valor) { 
             if(resultado == "Masculino") {
                 if(valor < 20) {
                     resultado = "Abaixo do peso";
@@ -98,10 +107,11 @@ namespace Temistocles {
         }
 
         private void clientesLst_SelectedIndexChanged(object sender, EventArgs e) {
+            LimparCampos();
             var aux = clientesLst.SelectedValue;
             if(clientesLst.SelectedValue != aux) {
                 List<AvaliacaoEntity> avaliacao = new List<AvaliacaoEntity>();
-                avaliacao = ClienteModel.SelecionarAvaliacao(int.Parse(clientesLst.SelectedValue.ToString()));
+                avaliacao = AvaliacaoModel.SelecionarAvaliacao(int.Parse(clientesLst.SelectedValue.ToString()));
 
                 foreach(var cliente in avaliacao) {
                     pesoNmr.Value = decimal.Parse(cliente.Peso.ToString());
@@ -121,7 +131,6 @@ namespace Temistocles {
                     dataAvaliacaoDt.Value = DateTime.Parse(cliente.DataAvaliacao.ToString());
                 }
 
-                novaBtn.Text = "Nova";
                 CalcularIMC();
             }
         }
@@ -151,15 +160,15 @@ namespace Temistocles {
                     DataAvaliacao = DateTime.Parse(dataAvaliacaoDt.Text.ToString())
                 };
 
-                ClienteModel.CriarAvaliacao(avaliacao);
+                AvaliacaoModel.CriarAvaliacao(avaliacao);
             } catch(Exception ex) {
                 MessageBox.Show(ex.Message, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            LimparCampos();
+            ListarClientes();
         }
 
         private void historicoBtn_Click(object sender, EventArgs e) {
-            Historico historico = new Historico(int.Parse(clientesLst.SelectedValue.ToString()));
+            Historicos historico = new Historicos(int.Parse(clientesLst.SelectedValue.ToString()));
             historico.MdiParent = main;
             historico.Show();
         }
@@ -182,7 +191,6 @@ namespace Temistocles {
 
         private void limparBtn_Click(object sender, EventArgs e) {
             LimparCampos();
-            CalcularIMC();
             dataAvaliacaoDt.Value = DateTime.Now;
         }
     }
